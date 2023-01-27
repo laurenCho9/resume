@@ -1,0 +1,49 @@
+{
+    "profile": [
+        {
+            "headline": "🐱 GitHub",
+            "title": "baebae-dev - Overview",
+            "txt": "데이터 카탈로그는 사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
+            "icon": "icon gitHub",
+            "address": "https://naver.com"
+        },
+        {
+            "headline": "🐱 Velog",
+            "title": "bae - Overview",
+            "txt": "사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
+            "icon": "icon velog",
+            "address": "https://google.com"
+        },
+        {
+            "headline": "🐱 GitBook (AI)",
+            "title": "baebae-dev - Overview",
+            "txt": "데이터 카탈로그는 사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
+            "icon": "icon gitBook",
+            "address": "https://naver.com"
+        }
+    ],
+    "experience": [
+        {
+            "title": "에이모",
+            "subTitle": [
+                "Studio TF 2021.06 ~ 2021.12",
+                "TF 2021.06 ~ 2021.12"
+            ],
+            "content": [
+                "사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"
+            ],
+            "subContent": [
+                "Brush Tool(Semantic) 개발"
+            ]
+        },
+        {
+            "title": "카카오스타일(지그재그) Product Designer",
+            "subTitle": [
+                "Kakao"
+            ],
+            "content": [
+                "Kakao"
+            ]
+        }
+    ]
+}
