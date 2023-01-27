@@ -17,7 +17,6 @@ function App() {
       });
   }, []);
 
-
   const profileAreaClick = (profileAddress) => {
     // console.log(profileAddress);
     window.open(profileAddress);
