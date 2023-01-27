@@ -80,7 +80,7 @@ hr {
 }
 
 .hidden {
-  /* display: none; */
+  display: none;
 }
 
 .title_hidden {

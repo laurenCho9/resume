@@ -24,22 +24,33 @@
     ],
     "experience": [
         {
-            "title": "에이모",
+            "title1": "에이모",
+            "title2": "Product Designer",
             "subTitle": [
-                "Studio TF 2021.06 ~ 2021.12",
-                "TF 2021.06 ~ 2021.12"
+                "TF",
+                "TTTFFFFFF"
             ],
             "content": [
                 "사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"
+            ],
+            "date": [
+                "2012.12 - 2023.21"
+            ],
+            "subDate": [
+                "2012.12 - 2099.21"
             ],
             "subContent": [
                 "Brush Tool(Semantic) 개발"
             ]
         },
         {
-            "title": "카카오스타일(지그재그) Product Designer",
+            "title1": "카카오스타일",
+            "title2": "Product Designer",
             "subTitle": [
                 "Kakao"
+            ],
+            "date": [
+                "2012.12 - 2023.21"
             ],
             "content": [
                 "Kakao"

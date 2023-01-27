@@ -5,8 +5,9 @@ import { useEffect, useState } from 'react';
 function App() {
   let title = ["GitHub", "Velog", "GitBook (AI)"];
   let [dataObj, setDataObj] = useState(null);
+  let [clickObj, setClickObj] = useState([]); //setClickObj 값을 바꿔주는 역할만 한다.
 
-  console.log(dataObj);
+  // console.log(dataObj.experience);
   useEffect(() => {
     axios.get('data.json')
       .then(function (response) {
@@ -20,6 +21,15 @@ function App() {
   const profileAreaClick = (profileAddress) => {
     // console.log(profileAddress);
     window.open(profileAddress);
+  }
+  const toggleClick = (experienceToggle) => {
+    // console.log(experienceToggle);
+    setClickObj([experienceToggle, ...clickObj]);
+    console.log(clickObj);
+    let filter = clickObj.filter((item) => { return item !== experienceToggle });
+    // setClickObj(filter);
+    // console.log(filter);
+    // (experienceToggle);
   }
 
   return (
@@ -95,35 +105,40 @@ function App() {
             <h3 className='title'>Experience</h3>
             <hr />
             <div className='toggle_list font_grey'>
-              <ul className='box depth1'>
-                <li>
-                  <span className='inline_flex'><img className='toggle' src="icon_toggle.png" /></span>
-                  <div><b>에이모</b><span className='pd_left6'>Product Designer</span></div>
-                  <div className='italic depth1_date'>2011.02 - 2021.12</div>
-                </li>
-                <ul className='box hidden depth2'>
-                  <li>
-                    <img className='toggle' src="icon_toggle.png" />
-                    <div><span>Notion TF</span><span className='pd_left6'>2021. 08 - 2021.10</span></div>
-                    <div></div>
-                  </li>
-                  <ul className='box hidden depth3'>
+              {console.log(clickObj)}
+
+
+              {
+                // console.log(dataObj.experience)
+
+                dataObj && dataObj.experience.map((item) =>
+                  // console.log("아이템 확인 : ", item)
+                  // console.log(dataObj)
+                  < ul className='box depth1' >
                     <li>
-                      <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
-                      <div><span>Notion과 Super 서비스를 이용해 에이모 영문 홈페이지 https://en.aimmo.ai 구축</span></div>
-                      <div></div>
+                      <span className='inline_flex' onClick={() => toggleClick(item.title1)}><img className='toggle' src="icon_toggle.png" /></span>
+                      <div><b>{item.title1}</b><span className='pd_left6'>{item.title2}</span></div>
+                      <div className='italic depth1_date'>{item.date}</div>
                     </li>
-                    <ul className='box hidden depth4'>
+                    <ul className='box hidden depth2'>
                       <li>
-                        <img className='circle' src="icon_circle.png" />
-                        <div><span>Brush Tool(Semantic) 개발</span></div>
+                        <img className='toggle' src="icon_toggle.png" />
+                        <div><span>{item.subTitle}</span><span className='pd_left6'>{item.subDate}</span></div>
                         <div></div>
                       </li>
+                      <ul className='box hidden depth3'>
+                        <li>
+                          <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
+                          <div><span>Notion과 Super 서비스를 이용해 에이모 영문 홈페이지 https://en.aimmo.ai 구축</span></div>
+                          <div></div>
+                        </li>
+                      </ul>
                     </ul>
+                    <div className='gray_hr'></div>
                   </ul>
-                </ul>
-                <div className='gray_hr'></div>
-              </ul>
+                )
+              }
+
             </div>
           </article>
 
