@@ -56,5 +56,46 @@
                 "Kakao"
             ]
         }
+    ],
+    "tabName": [
+        {
+            "title": "All"
+        },
+        {
+            "title": "Work"
+        },
+        {
+            "title": "Practice"
+        }
+    ],
+    "work": [
+        {
+            "icon": "😃",
+            "title": "(Kor)Project",
+            "link": "https://www.netlify.com/",
+            "date": "9999.12 - 2017.05",
+            "tag": "tag"
+        },
+        {
+            "icon": "✨",
+            "title": "트위터",
+            "link": "https://www.daum.net/",
+            "date": "2016.12 - 2017.05",
+            "tag": "Work"
+        },
+        {
+            "icon": "📃",
+            "title": "이력서 프로젝트",
+            "link": "https://www.nate.com/",
+            "date": "2016.12 - 2017.05",
+            "tag": "Work"
+        },
+        {
+            "icon": "📃",
+            "title": "투두리스트",
+            "link": "https://www.google.com/",
+            "date": "2016.12 - 2017.05",
+            "tag": "Work"
+        }
     ]
 }

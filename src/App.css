@@ -90,9 +90,6 @@ hr {
   left: 0;
 }
 
-.row_space,
-.column_space {}
-
 .period,
 .toggle_list ul li .italic,
 .bullet_list ul li .italic,
@@ -225,8 +222,13 @@ footer.italic {
   background-size: contain;
   display: inline-flex;
   vertical-align: sub;
+}
+
+.address .icon,
+.gallery span {
   margin-right: 4px;
 }
+
 
 .profile ul.box .embed .link_img {
   flex: 1 1 180px;
