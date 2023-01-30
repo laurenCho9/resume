@@ -31,6 +31,10 @@ function App() {
     // console.log(filter);
     // (experienceToggle);
   }
+  const projectAreaClick = (projectLink) => {
+    // console.log(profileAddress);
+    window.open(projectLink);
+  }
 
   return (
     <div className='content'>
@@ -114,9 +118,9 @@ function App() {
                 dataObj && dataObj.experience.map((item) =>
                   // console.log("아이템 확인 : ", item)
                   // console.log(dataObj)
-                  < ul className='box depth1' >
+                  <ul className='box depth1' >
                     <li>
-                      <span className='inline_flex' onClick={() => toggleClick(item.title1)}><img className='toggle' src="icon_toggle.png" /></span>
+                      <span onClick={() => toggleClick(item.title1)} className='inline_flex'><img className='toggle' src="icon_toggle.png" /></span>
                       <div><b>{item.title1}</b><span className='pd_left6'>{item.title2}</span></div>
                       <div className='italic depth1_date'>{item.date}</div>
                     </li>
@@ -155,46 +159,18 @@ function App() {
           <article className='career'>
             <h3 className='title'>Work ()</h3>
             <div className='gallery_wrap'>
-              <div className='gallery'>
-                <div className='thumbnail'></div>
-                <div className='txt'>
-                  <p className='title'><span>📃</span><b> (Kor)Project ADA Prototype</b></p>
-                  <p className='date'>2016.12 - 2017.05</p>
-                  <p className='tag'><span>Work</span></p>
-                </div>
-              </div>
-              <div className='gallery'>
-                <div className='thumbnail'></div>
-                <div className='txt'>
-                  <p className='title'><span>📃</span><b> (Kor)Project ADA Prototype</b></p>
-                  <p className='date'>2016.12 - 2017.05</p>
-                  <p className='tag'><span>Work</span></p>
-                </div>
-              </div>
-              <div className='gallery'>
-                <div className='thumbnail'></div>
-                <div className='txt'>
-                  <p className='title'><span>📃</span><b> (Kor)Project ADA Prototype</b></p>
-                  <p className='date'>2016.12 - 2017.05</p>
-                  <p className='tag'><span>Work</span></p>
-                </div>
-              </div>
-              <div className='gallery'>
-                <div className='thumbnail'></div>
-                <div className='txt'>
-                  <p className='title'><span>📃</span><b> (Kor)Project ADA Prototype</b></p>
-                  <p className='date'>2016.12 - 2017.05</p>
-                  <p className='tag'><span>Work</span></p>
-                </div>
-              </div>
-              <div className='gallery'>
-                <div className='thumbnail'></div>
-                <div className='txt'>
-                  <p className='title'><span>📃</span><b> (Kor)Project ADA Prototype</b></p>
-                  <p className='date'>2016.12 - 2017.05</p>
-                  <p className='tag'><span>Work</span></p>
-                </div>
-              </div>
+              {
+                dataObj && dataObj.work.map((item) =>
+                  <div onClick={() => projectAreaClick(item.link)} className='gallery'>
+                    <div className='thumbnail'></div>
+                    <div className='txt'>
+                      <p className='title'><span>{item.icon}</span><b>{item.title}</b></p>
+                      <p className='date'>{item.date}</p>
+                      <p className='tag'><span>{item.tag}</span></p>
+                    </div>
+                  </div>
+                )
+              }
             </div>
           </article>
 
