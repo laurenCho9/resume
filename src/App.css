@@ -388,24 +388,19 @@ ul.depth2 {
 .tab_btn {
   border: 0;
   background-color: transparent;
+  background-image: url(../public/icon_tab.png);
+  background-position: 8px 50%;
+  background-repeat: no-repeat;
+  background-size: 1.8rem;
   display: inline-flex;
-  padding: 3px 8px;
+  padding: 3px 8px 3px 25px;
+
 }
 
 .tab_btn.focus {
   border-bottom: 2px solid #000;
   color: #000;
   padding-bottom: 1px;
-}
-
-/* 탭메뉴 첫번째 svg style */
-.tab_btn.focus .st0 {
-  stroke: #000 !important;
-}
-
-.tab_btn object {
-  width: 20px;
-  display: inline-flex;
 }
 
 .gallery_wrap {
@@ -619,9 +614,7 @@ footer {
     margin: 6px 10px 3px 2px;
   }
 
-  .tab_btn object {
-    width: 1.8rem;
-  }
+
 
   .gallery_wrap {
     grid-template-columns: repeat(1, 1fr);
@@ -682,7 +675,8 @@ footer {
     font-size: 1.5rem;
   }
 
-  .tab_btn object {
-    width: 1.7rem;
+  .tab_btn {
+    background-size: 1.7rem;
   }
+
 }

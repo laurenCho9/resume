@@ -1,6 +1,10 @@
 {
     "profile": [
         {
+            "headline" : "📧 Email",
+            "address" : "abc@gmail.com"
+        },
+        {
             "headline": "🐱 GitHub",
             "title": "baebae-dev - Overview",
             "txt": "데이터 카탈로그는 사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
@@ -22,9 +26,16 @@
             "address": "https://naver.com"
         }
     ],
+    "summary":[
+        {
+            "date":"2011.02 - 2021 현재",
+            "summaryContent":"React Project"
+        }
+
+    ],
     "experience": [
         {
-            "title1": "에이모",
+            "title1": "NAVER",
             "title2": "Product Designer",
             "subTitle": [
                 "TF",
@@ -40,11 +51,11 @@
                 "2012.12 - 2099.21"
             ],
             "subContent": [
-                "Brush Tool(Semantic) 개발"
+                "Tool 개발"
             ]
         },
         {
-            "title1": "카카오스타일",
+            "title1": "카카오",
             "title2": "Product Designer",
             "subTitle": [
                 "Kakao"
@@ -57,45 +68,85 @@
             ]
         }
     ],
-    "tabName": [
+    "tabName":[
         {
-            "title": "All"
+            "name":"All"
         },
         {
-            "title": "Work"
+            "name":"Work"
         },
         {
-            "title": "Practice"
+            "name":"Practice"
         }
     ],
     "work": [
         {
             "icon": "😃",
-            "title": "(Kor)Project",
+            "title": " (Kor)Project",
             "link": "https://www.netlify.com/",
             "date": "9999.12 - 2017.05",
             "tag": "tag"
         },
         {
             "icon": "✨",
-            "title": "트위터",
+            "title": " 트위터",
             "link": "https://www.daum.net/",
             "date": "2016.12 - 2017.05",
             "tag": "Work"
         },
         {
             "icon": "📃",
-            "title": "이력서 프로젝트",
+            "title": " 이력서 프로젝트",
             "link": "https://www.nate.com/",
             "date": "2016.12 - 2017.05",
             "tag": "Work"
         },
         {
             "icon": "📃",
-            "title": "투두리스트",
+            "title": " 투두리스트",
             "link": "https://www.google.com/",
             "date": "2016.12 - 2017.05",
             "tag": "Work"
+        }
+    ],
+    "tools": [
+        "Figma", "Figma2"
+    ],
+    "awards":[
+        {
+            "title1": "awards title1",
+            "title2": "awards title2",
+            "date": [
+                "2012.12 - 2023.21"
+            ],
+            "content": [
+                "Kakao","Kakao2"
+            ]
+        },
+        {
+            "title1": "awards title11",
+            "title2": "awards title22",
+            "date": [
+                "2012.12 - 2023.21"
+            ],
+            "content": [
+                "Kakao","Kakao2"
+            ]
+        }
+    ],
+    "education":[
+        {
+            "education":"한국대학교",
+            "date":"2016.12 - 2017.05"
+        },
+        {
+            "education":"한국아카데미",
+            "date":"2016.12 - 2017.05"
+        }
+    ],
+    "contact":[
+        {
+            
         }
     ]
 }

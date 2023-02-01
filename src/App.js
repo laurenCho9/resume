@@ -3,37 +3,49 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
-  let title = ["GitHub", "Velog", "GitBook (AI)"];
-  let [dataObj, setDataObj] = useState(null);
-  let [clickObj, setClickObj] = useState([]); //setClickObj 값을 바꿔주는 역할만 한다.
+  let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
+  let [clickObj, setClickObj] = useState([]); // toggle click 여부에 따라 펼치고 접기 위한 Object를 담을 state
+  let [tabFocusCss, setTabFocusCss] = useState("All"); // 탭 focus css 적용시킬 state, 초기값은 All
 
-  // console.log(dataObj.experience);
+  // useEffect를 활용하여 최초 렌더링(두 번째 인자값 [])이 되었을 때에만 data.json을 호출한다.
+  // axios 통신으로 data.json 파일에 있는 데이터를 get 한다.
   useEffect(() => {
     axios.get('data.json')
       .then(function (response) {
         // 성공 핸들링
-        setDataObj(response.data);
-        // setDataObj("test");
-
+        // response는 data.json 안에 json 형식으로 되어 있는 모든 데이터를 뜻한다.
+        setDataObj(response.data);  // set함수를 활용하여 dataObj 변수에 object 형식의 데이터를 대입한다.
       });
   }, []);
 
+  // profile 영역의 카드 클릭 시 해당 address의 새 창(새 탭)을 오픈한다.
   const profileAreaClick = (profileAddress) => {
-    // console.log(profileAddress);
+    // profileAdress는 address 값이다.
     window.open(profileAddress);
   }
-  const toggleClick = (experienceToggle) => {
-    // console.log(experienceToggle);
-    setClickObj([experienceToggle, ...clickObj]);
-    console.log(clickObj);
-    let filter = clickObj.filter((item) => { return item !== experienceToggle });
-    // setClickObj(filter);
-    // console.log(filter);
-    // (experienceToggle);
-  }
-  const projectAreaClick = (projectLink) => {
-    // console.log(profileAddress);
-    window.open(projectLink);
+
+  // 펼치고 접기 위한 toggle 클릭 시 넘겨주는 값을 toggleClickValue 매개 변수로 받아서 처리한다.
+  const toggleClick = (toggleClickValue) => {
+    // clickObj.length 가 0 즉 array 가 비어 있다면 toggleClickValue를 최초로 넣어 준다.
+    if (clickObj.length === 0) {
+      setClickObj([toggleClickValue])
+    } else {
+      // clickObj 가 빈 [] 상태가 아니라면 includes 함수를 활용하여 내가 클릭한 toggleClickValue가 clickObj에 존재하는지 체크한다.
+      if (clickObj.includes(toggleClickValue) === false) {
+        // clickObj 안에 toggleClickValue가 존재하지 않는다는 건 접혀있는 상태라는 말이기 때문에 toggleClickValue를 넣어 준다.
+        setClickObj([toggleClickValue, ...clickObj])
+      } else {
+        // clickObj 안에 toggleClickValue가 존재한다면 filter로 제거한다.
+        let filter = clickObj.filter((item) => {
+          // item 이 toggleClickValue와 다른 값들만 return 한다.
+          if (item !== toggleClickValue) {
+            return toggleClickValue
+          }
+        });
+        // filter 된 값을 set함수를 이용하여 clickObj 값을 update 시킨다.
+        setClickObj(filter)
+      }
+    }
   }
 
   return (
@@ -49,35 +61,27 @@ function App() {
           <div className='photo'></div>
           <div className='column_space'></div>
           <article className='profile'>
-            <ul className='box'>
-              <li className='bold'>📧 Email</li>
-              <li className='address'>loremipsum@gmail.com</li>
-            </ul>
             {
-              // console.log(dataObj.profile)
-              // dataObj && dataObj.profile.map(function (item) {
-              //   console.log("아이템 확인 : ", item)
-              //   // console.log(dataObj)
-              // })
               dataObj && dataObj.profile.map((item) =>
-                // console.log("아이템 확인 : ", item)
-                // console.log(dataObj)
-                <ul className='box'>
+                <ul className='box' key={item.headline}>
                   <li className='bold'>{item.headline}</li>
-                  <li onClick={() => profileAreaClick(item.address)} className='embed'>
-                    <article className='link_wrap'>
-                      <p className='title'>{item.title}</p>
-                      <p className='txt'>
-                        {item.txt}
-                      </p>
-                      <a className='address'><span className='icon github'></span>https://naver.com</a>
-                    </article>
-                    <div className='link_img'></div>
-                  </li>
+                  {!item.address.includes("@") ?
+                    <li onClick={() => profileAreaClick(item.address)} className='embed'>
+                      <article className='link_wrap'>
+                        <p className='title'>{item.title}</p>
+                        <p className='txt'>
+                          {item.txt}
+                        </p>
+                        <a className='address'><span className='icon github'></span>https://naver.com</a>
+                      </article>
+                      <div className='link_img'></div>
+                    </li>
+                    :
+                    <li className='address'><span className={item.icon} />{item.address}</li>
+                  }
                 </ul>
               )
             }
-
           </article>
         </div>
         <div className='introduce_wrap'>
@@ -95,12 +99,14 @@ function App() {
           <article className='career'>
             <h3 className='title'>Summary</h3>
             <hr />
-            <div className='bullet_list vertlcal_sub ratio_1_2'>
-              <p className='period padding12'>2011.02 - 2021 현재</p>
-              <ul className='box padding12'>
-                <li><div><img className='disc' src="icon_disc.png" /><span>Web, iOS, Android, React 등 다양한 플랫폼 경험</span></div></li>
-              </ul>
-            </div>
+            {dataObj && dataObj.summary.map((item) =>
+              <div className='bullet_list vertlcal_sub ratio_1_2' key={item.summaryContent}>
+                <p className='period padding12'>{item.date}</p>
+                <ul className='box padding12'>
+                  <li><div><img className='disc' src="icon_disc.png" /><span>{item.summaryContent}</span></div></li>
+                </ul>
+              </div>
+            )}
           </article>
 
           <div className='row_space'></div>
@@ -109,68 +115,77 @@ function App() {
             <h3 className='title'>Experience</h3>
             <hr />
             <div className='toggle_list font_grey'>
-              {console.log(clickObj)}
-
-
               {
-                // console.log(dataObj.experience)
-
                 dataObj && dataObj.experience.map((item) =>
-                  // console.log("아이템 확인 : ", item)
-                  // console.log(dataObj)
-                  <ul className='box depth1' >
-                    <li>
-                      <span onClick={() => toggleClick(item.title1)} className='inline_flex'><img className='toggle' src="icon_toggle.png" /></span>
-                      <div><b>{item.title1}</b><span className='pd_left6'>{item.title2}</span></div>
-                      <div className='italic depth1_date'>{item.date}</div>
-                    </li>
-                    <ul className='box hidden depth2'>
+                  <div key={item.title1}>
+                    <ul className='box depth1'>
                       <li>
-                        <img className='toggle' src="icon_toggle.png" />
+                        <span className='inline_flex' onClick={() => toggleClick(item.title1)}><img className='toggle' src="icon_toggle.png" /></span>
+                        <div><b>{item.title1}</b><span className='pd_left6'>{item.title2}</span></div>
+                        <div className='italic depth1_date'>{item.date}</div>
+                      </li>
+                    </ul>
+                    <ul className={clickObj.includes(item.title1) ? 'box depth2' : 'box hidden depth2'}>
+                      <li>
+                        <span className='inline_flex' onClick={() => toggleClick(item.subTitle)}><img className='toggle' src="icon_toggle.png" /></span>
                         <div><span>{item.subTitle}</span><span className='pd_left6'>{item.subDate}</span></div>
                         <div></div>
                       </li>
-                      <ul className='box hidden depth3'>
-                        <li>
-                          <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
-                          <div><span>Notion과 Super 서비스를 이용해 에이모 영문 홈페이지 https://en.aimmo.ai 구축</span></div>
-                          <div></div>
-                        </li>
-                      </ul>
+                    </ul>
+                    <ul className={clickObj.includes(item.subTitle) && clickObj.includes(item.title1) ? 'box depth3' : 'box hidden depth3'}>
+                      <li>
+                        <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
+                        <div><span>3333333333333333333333333</span></div>
+                        <div></div>
+                      </li>
+                    </ul>
+                    <ul className={clickObj.includes(item.subTitle) && clickObj.includes(item.title1) ? 'box depth4' : 'box hidden depth4'}>
+                      <li>
+                        <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
+                        <div><span>444444444444444444444444444</span></div>
+                        <div></div>
+                      </li>
                     </ul>
                     <div className='gray_hr'></div>
-                  </ul>
+                  </div>
                 )
               }
-
             </div>
           </article>
-
           <div className='row_space'></div>
-
           <div className='tab_wrap font_grey'>
-            <div className='tab_btn focus'><object data="icon_tab_bk.svg" type="image/svg+xml" /><span className='tab_txt pd_left6'>All</span></div>
-            <div className='tab_btn'><object data="icon_tab_gray.svg" type="image/svg+xml" /><span className='tab_txt pd_left6'>Work</span></div>
-            <div className='tab_btn'><object data="icon_tab_gray.svg" type="image/svg+xml" /><span className='tab_txt pd_left6'>Practice</span></div>
+            {dataObj && dataObj.tabName.map((item) =>
+              <div className={tabFocusCss === item.name ? 'tab_btn focus' : 'tab_btn'} onClick={(e) => setTabFocusCss(e.target.textContent)} key={item.name}><span className='tab_txt pd_left6'>{item.name}</span></div>
+            )}
           </div>
-
           <div className='gray_hr mg_top-1'></div>
 
           <article className='career'>
-            <h3 className='title'>Work ()</h3>
+            <h3 className='title'>{tabFocusCss}</h3>
             <div className='gallery_wrap'>
-              {
-                dataObj && dataObj.work.map((item) =>
-                  <div onClick={() => projectAreaClick(item.link)} className='gallery'>
+              {dataObj && dataObj.work.map((item) =>
+                tabFocusCss !== 'All' ?
+                  item.tag === tabFocusCss ?
+                    <div className='gallery' key={item.title}>
+                      <div className='thumbnail'></div>
+                      <div className='txt'>
+                        <p className='title'><span>{item.icon}</span><b> {item.title}</b></p>
+                        <p className='date'>{item.date}</p>
+                        <p className='tag'><span>{item.tag}</span></p>
+                      </div>
+                    </div>
+                    :
+                    ""
+                  :
+                  <div className='gallery' key={item.title}>
                     <div className='thumbnail'></div>
                     <div className='txt'>
-                      <p className='title'><span>{item.icon}</span><b>{item.title}</b></p>
+                      <p className='title'><span>{item.icon}</span><b> {item.title}</b></p>
                       <p className='date'>{item.date}</p>
                       <p className='tag'><span>{item.tag}</span></p>
                     </div>
                   </div>
-                )
-              }
+              )}
             </div>
           </article>
 
@@ -181,7 +196,7 @@ function App() {
             <hr />
             <div className='bullet_list vertlcal_sub'>
               <ul className='box padding12'>
-                <li><div><img className='disc' src="icon_disc.png" /><span>Figma</span></div></li>
+                {dataObj && dataObj.tools.map((item) => <li key={item}><div><img className='disc' src="icon_disc.png" /><span className='pd_left2'>{item}</span></div></li>)}
               </ul>
             </div>
           </article>
@@ -192,18 +207,42 @@ function App() {
             <h3 className='title'>Awards</h3>
             <hr />
             <div className='toggle_list font_grey'>
-              <ul className='box depth1'>
-                <li>
-                  <div><span className='inline_flex'><img className='toggle' src="icon_toggle.png" /></span><b>에이모</b><span className='pd_left6'>Product Designer</span></div>
-                  <div className='italic depth1_date'>2011.02 - 2021.12</div>
-                </li>
-                <ul className='box hidden depth2'>
-                  <li>
-                    <div><span>Notion TF</span></div>
-                  </li>
-                </ul>
-                <div className='gray_hr'></div>
-              </ul>
+              {
+                dataObj && dataObj.awards.map((item) =>
+                  <div key={item.title1}>
+                    <ul className='box depth1'>
+                      <li>
+                        <span className='inline_flex' onClick={() => toggleClick(item.title1)}>
+                          <img className='toggle' src="icon_toggle.png" /></span>
+                        <div><b>{item.title1}</b><span className='pd_left6'>{item.title2}</span></div>
+                        <div className='italic depth1_date'>{item.date}</div>
+                      </li>
+                    </ul>
+                    {
+                      item.content.length > 1 ?
+                        item.content.map((item2) =>
+                          <ul className={clickObj.includes(item.title1) ? 'box depth2' : 'box hidden depth2'} key={item2}>
+                            <li>
+                              <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
+                              <div><span className='pd_left6'>{item2}</span></div>
+                              <div></div>
+                            </li>
+                          </ul>
+                        )
+                        :
+                        <ul className={clickObj.includes(item.title1) ? 'box depth2' : 'box hidden depth2'}>
+                          <li>
+
+                            <span className='inline_flex'><img className='disc' src="icon_disc.png" /></span>
+                            <div><span className='pd_left6'>{item.content}</span></div>
+                            <div></div>
+                          </li>
+                        </ul>
+                    }
+                    <div className='gray_hr'></div>
+                  </div>
+                )
+              }
             </div>
           </article>
 
@@ -212,20 +251,22 @@ function App() {
           <article className='career'>
             <h3 className='title'>Education</h3>
             <hr />
-            <div className='bullet_list flex_column font_grey'>
-              <ul className='box depth1'>
-                <li>
-                  <div><span className='inline_flex'><img className='disc' src="icon_disc.png" /></span><b>국립 공주대학교</b></div>
-                  <div className='italic depth1_date'>2011.02 - 2021.12</div>
-                </li>
-                <ul className='box hidden depth2'>
+            {dataObj && dataObj.education.map((item) =>
+              <div className='bullet_list flex_column font_grey' key={item.education}>
+                <ul className='box depth1'>
                   <li>
-                    <div><span>Notion TF</span></div>
+                    <div><span className='inline_flex'><img className='disc' src="icon_disc.png" /></span><b>{item.education}</b></div>
+                    <div className='italic depth1_date'>{item.date}</div>
                   </li>
+                  {/* <ul className='box hidden depth2'>
+                    <li>
+                      <div><span>Notion TF</span></div>
+                    </li>
+                  </ul> */}
+                  <div className='gray_hr'></div>
                 </ul>
-                <div className='gray_hr'></div>
-              </ul>
-            </div>
+              </div>
+            )}
           </article>
 
           <div className='row_space'></div>
@@ -236,19 +277,19 @@ function App() {
             <div className='bullet_list flex_column contact_wrap font_grey'>
               <div className='contact vertlcal_sub'>
                 <p><span><img className='disc' src="icon_disc.png" /></span><b >E-mail</b></p>
-                <p className='txt pd22'>dreamlikemoment@gmail.com</p>
+                <p className='txt pd22'>abc@gmail.com</p>
               </div>
               <div className='contact vertlcal_sub'>
                 <p><span><img className='disc' src="icon_disc.png" /></span><b >E-mail</b></p>
-                <p className='txt pd22'>dreamlikemoment@gmail.com</p>
+                <p className='txt pd22'>abc@gmail.com</p>
               </div>
               <div className='contact vertlcal_sub'>
                 <p><span><img className='disc' src="icon_disc.png" /></span><b >E-mail</b></p>
-                <p className='txt pd22'>dreamlikemoment@gmail.com</p>
+                <p className='txt pd22'>abc@gmail.com</p>
               </div>
               <div className='contact vertlcal_sub'>
                 <p><span><img className='disc' src="icon_disc.png" /></span><b >E-mail</b></p>
-                <p className='txt pd22'>dreamlikemoment@gmail.com</p>
+                <p className='txt pd22'>abc@gmail.com</p>
               </div>
             </div>
           </article>
