@@ -311,7 +311,7 @@ footer.italic {
 .bullet_list ul li ul li div:nth-child(2),
 .bullet_list ul li ul li ul li div:nth-child(2),
 .bullet_list ul li ul li ul li ul li div:nth-child(2) {
-  flex: 1 1 140px;
+  flex: 1 1 150px;
 }
 
 .depth1_date {
