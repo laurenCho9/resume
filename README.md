@@ -1,7 +1,10 @@
 ## 프로젝트 소개
 노션 이력서를 참고하여 프론트엔드(React), 퍼블리셔(css) 총 2인이 작업하였습니다.
 
-## 배포링크
+## 기술 스택
+React, CSS
+
+## 배포 링크
 https://resume-team-project.netlify.app/
 
 ## 블로그 기록
