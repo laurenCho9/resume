@@ -1,63 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 10px;
-}
-
-body {
-  font-size: 1.6rem;
-  width: 100%;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-.title {
-  text-align: left;
-  color: #333333;
-}
-
-.profile ul.box .embed .link_wrap .title,
-.introduce .txt {
-  color: #3f3e39;
-}
-
-h1 {
-  font-size: 4rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-}
-
-h4 {
-  font-size: 2rem;
-}
-
-p,
 .profile ul.box li,
 .introduce_wrap ul.box li {
   font-size: 1.6rem;
 }
-
-hr {
-  border: 1px solid #000;
-}
-
-/* style */
 .profile ul.box .embed .link_wrap .txt,
 .profile ul.box .embed .link_wrap .address,
 .gallery .txt .title span,
@@ -112,17 +56,17 @@ footer.italic {
   background-size: cover;
 }
 
-.icon.github {
-  background-image: url(../public/icon_github.png);
-}
+// .icon.github {
+//   background-image: url(/icon_github.png);
+// }
 
-.icon.velog {
-  background-image: url(../public/icon_velog.png);
-}
+// .icon.velog {
+//   background-image: url(/icon_velog.png);
+// }
 
-.icon.gitbook {
-  background-image: url(../public/icon_gitbook.png);
-}
+// .icon.gitbook {
+//   background-image: url(/icon_gitbook.png);
+// }
 
 /* layout - desktop */
 .content {
@@ -140,7 +84,7 @@ footer.italic {
 .header .emoji {
   width: 78px;
   height: 102px;
-  background-image: url("../public/icon_emoji.png");
+  // background-image: url("/icon_emoji.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -212,8 +156,6 @@ footer.italic {
   -webkit-box-orient: vertical;
 }
 
-
-
 .address .icon {
   width: 16px;
   height: 15px;
@@ -228,7 +170,6 @@ footer.italic {
 .gallery span {
   margin-right: 4px;
 }
-
 
 .profile ul.box .embed .link_img {
   flex: 1 1 180px;
@@ -258,7 +199,6 @@ footer.italic {
   padding: 3px 2px;
 }
 
-
 .bullet_list.flex_column {
   flex-direction: column;
 }
@@ -273,7 +213,6 @@ footer.italic {
   flex: 1 1 200px;
   padding-top: 15px;
 }
-
 
 .bullet_list.ratio_1_2 ul.box {
   flex: 2 1 600px;
@@ -320,8 +259,8 @@ footer.italic {
   padding-right: 16px;
 }
 
-.toggle_list ul.depth1>li,
-.bullet_list ul.depth1>li {
+.toggle_list ul.depth1 > li,
+.bullet_list ul.depth1 > li {
   padding: 14px 2px 0;
   align-items: baseline;
 }
@@ -361,7 +300,6 @@ ul.depth2 {
   margin-top: 14px;
 }
 
-
 .toggle,
 .disc,
 .circle {
@@ -388,13 +326,12 @@ ul.depth2 {
 .tab_btn {
   border: 0;
   background-color: transparent;
-  background-image: url(../public/icon_tab.png);
+  // background-image: url(/icon_tab.png);
   background-position: 8px 50%;
   background-repeat: no-repeat;
   background-size: 1.8rem;
   display: inline-flex;
   padding: 3px 8px 3px 25px;
-
 }
 
 .tab_btn.focus {
@@ -413,7 +350,8 @@ ul.depth2 {
 
 .gallery {
   max-width: 100%;
-  box-shadow: 0px 0px 0px 1px rgb(15, 15, 15, 0.1), 0px 2px 4px rgb(15, 15, 15, 0.1);
+  box-shadow: 0px 0px 0px 1px rgb(15, 15, 15, 0.1),
+    0px 2px 4px rgb(15, 15, 15, 0.1);
   border-radius: 3px;
 }
 
@@ -479,7 +417,6 @@ footer {
 /* layout - desktop - min-width: 768px ===============================================================
 ========================================================================================================= */
 @media (min-width: 768px) {
-
   .profile ul.box .embed {
     cursor: pointer;
     transition: all 0.3s;
@@ -495,14 +432,14 @@ footer {
   }
 
   .gallery:hover {
-    box-shadow: 0px 0px 0px 1px rgb(63, 62, 57, 0.4), 0px 2px 4px 2px rgb(63, 62, 57, 0.4);
+    box-shadow: 0px 0px 0px 1px rgb(63, 62, 57, 0.4),
+      0px 2px 4px 2px rgb(63, 62, 57, 0.4);
   }
 }
 
 /* layout - mobile (1) - max-width: 767px ===============================================================
 ========================================================================================================= */
 @media (max-width: 767px) {
-
   body {
     font-size: 1.6rem;
     width: 100%;
@@ -567,7 +504,6 @@ footer {
     padding-top: 15px;
   }
 
-
   .bullet_list.ratio_1_2 ul.box {
     flex: auto;
   }
@@ -613,8 +549,6 @@ footer {
   .circle {
     margin: 6px 10px 3px 2px;
   }
-
-
 
   .gallery_wrap {
     grid-template-columns: repeat(1, 1fr);
@@ -678,5 +612,4 @@ footer {
   .tab_btn {
     background-size: 1.7rem;
   }
-
 }
