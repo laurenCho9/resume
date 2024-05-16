@@ -87,13 +87,25 @@ function PortfolioPage() {
                 </div>
                 <div class="column_space"></div>
                 <div className="width330 thumbnail_project">
-                  <img src="thumbnail_movies.png" alt="" />
+                  <a
+                    href="https://movies-chohayoon.netlify.app/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    <img src="thumbnail_movies.png" alt="" />
+                  </a>
                 </div>
               </section>
               {/* sect02 */}
               <section className="grid pd_top24">
                 <div className="width330 thumbnail_project">
-                  <img src="thumbnail_coding.png" alt="" />
+                  <a
+                    href="https://superclub.vercel.app/recruit"
+                    target="_blank"
+                    className="underline"
+                  >
+                    <img src="thumbnail_coding.png" alt="" />
+                  </a>
                 </div>
                 <div class="column_space"></div>
                 <div className="flex_gap">
@@ -161,13 +173,25 @@ function PortfolioPage() {
                 </div>
                 <div class="column_space"></div>
                 <div className="width330 thumbnail_project">
-                  <img src="thumbnail_resume.png" alt="" />
+                  <a
+                    href="https://resume-team-project.netlify.app/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    <img src="thumbnail_resume.png" alt="" />
+                  </a>
                 </div>
               </section>
               {/* sect04 */}
               <section className="grid pd_top24">
                 <div className="width330 thumbnail_project">
-                  <img src="thumbnail_diary.png" alt="" />
+                  <a
+                    href="https://winter-react-project.web.app/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    <img src="thumbnail_diary.png" alt="" />
+                  </a>
                 </div>
                 <div class="column_space"></div>
                 <div className="flex_gap">
@@ -209,14 +233,21 @@ function PortfolioPage() {
                 </div>
                 <div class="column_space"></div>
                 <div className="width330 thumbnail_project">
-                  <img src="thumbnail_todo.png" alt="" />
+                  <a
+                    href="https://daily-to-doo.netlify.app/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    <img src="thumbnail_todo.png" alt="" />
+                  </a>
                 </div>
               </section>
             </div>
           </article>
           <hr className="project_hr" />
           <footer className="italic">
-            <b>Latest Updated</b> @{}년 {}월 {}일
+            {/* <b>Latest Updated</b> @{}년 {}월 {}일 */}
+            <b>Latest Updated</b> @2024년 05월 17일
           </footer>
         </div>
       </section>
