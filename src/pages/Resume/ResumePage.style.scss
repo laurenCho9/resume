@@ -56,17 +56,17 @@ footer.italic {
   background-size: cover;
 }
 
-// .icon.github {
-//   background-image: url(/icon_github.png);
-// }
+.icon.github {
+  background-image: url("../../assets/icon_github.png");
+}
 
-// .icon.velog {
-//   background-image: url(/icon_velog.png);
-// }
+.icon.velog {
+  background-image: url("../../assets/icon_velog.png");
+}
 
-// .icon.gitbook {
-//   background-image: url(/icon_gitbook.png);
-// }
+.icon.gitbook {
+  background-image: url("../../assets/icon_gitbook.png");
+}
 
 /* layout - desktop */
 .content {
@@ -84,7 +84,7 @@ footer.italic {
 .header .emoji {
   width: 78px;
   height: 102px;
-  // background-image: url("/icon_emoji.png");
+  // background-image: url("icon_emoji.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -99,7 +99,8 @@ footer.italic {
 }
 
 .column_space {
-  width: 24px;
+  // width: 24px;
+  width: 8rem;
 }
 
 .main {
@@ -109,13 +110,39 @@ footer.italic {
 
 .photo {
   width: 207px;
+  // width: 450px;
   height: 276px;
-  background-color: navy;
+  background-image: url("../../assets/profile-image.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  .profile_key {
+    background: rgba(135, 131, 120, 0.15);
+    color: rgba(120, 119, 116, 1);
+    border-radius: 4px;
+    font-size: 90%;
+    padding: 0.1em 0.4em;
+    font-weight: 700;
+    fill: rgba(120, 119, 116, 1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 58.96px;
+    margin-right: 16px;
+  }
+}
+.flex.column {
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .profile ul.box li,
 .introduce_wrap ul.box li {
-  padding: 3px 2px;
+  padding: 6px 2px;
 }
 
 .profile ul.box .embed {
@@ -176,9 +203,9 @@ footer.italic {
   background-color: pink;
 }
 
-.introduce_wrap ul.box.introduce {
-  margin-top: 20px;
-}
+// .introduce_wrap ul.box.introduce {
+//   margin-top: 20px;
+// }
 
 .introduce_wrap ul.box .bold {
   font-weight: 600;
@@ -205,7 +232,8 @@ footer.italic {
 
 .career_wrap .career .title,
 .career_wrap .career .box.padding12,
-.padding12 {
+.padding12,
+.title {
   padding: 12px 0;
 }
 
@@ -612,4 +640,12 @@ footer {
   .tab_btn {
     background-size: 1.7rem;
   }
+}
+
+li.txt.bullet-flex {
+  display: flex;
+}
+
+article.profile {
+  width: 390px;
 }

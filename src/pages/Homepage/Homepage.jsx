@@ -22,6 +22,11 @@ function Homepage() {
             깃허브주소
           </a>
         </button>
+        <button>
+          <a href="https://github.com/laurenCho9" target="_blank">
+            벨로그
+          </a>
+        </button>
       </article>
     </div>
   );
