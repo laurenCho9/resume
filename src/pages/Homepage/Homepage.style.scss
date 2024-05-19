@@ -33,6 +33,13 @@
         background-color: #fff;
         transition: all ease-in-out 0.2s;
       }
+      a.block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // background-color: red;
+        height: 100%;
+      }
     }
   }
 }

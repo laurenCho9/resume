@@ -18,12 +18,20 @@ function Homepage() {
         <button onClick={navigateToResume}>이력서</button>
         <button onClick={navigateToPortfolio}>포트폴리오</button>
         <button>
-          <a href="https://github.com/laurenCho9" target="_blank">
+          <a
+            className="block"
+            href="https://github.com/laurenCho9"
+            target="_blank"
+          >
             깃허브주소
           </a>
         </button>
         <button>
-          <a href="https://github.com/laurenCho9" target="_blank">
+          <a
+            className="block"
+            href="https://velog.io/@lauren/posts"
+            target="_blank"
+          >
             벨로그
           </a>
         </button>

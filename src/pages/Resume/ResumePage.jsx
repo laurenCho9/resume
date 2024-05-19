@@ -6,6 +6,7 @@ function ResumePage() {
   let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
   let [clickObj, setClickObj] = useState([]); // toggle click 여부에 따라 펼치고 접기 위한 Object를 담을 state
   let [tabFocusCss, setTabFocusCss] = useState("All"); // 탭 focus css 적용시킬 state, 초기값은 All
+  let [rotationState, setRotationState] = useState({});
 
   // useEffect를 활용하여 최초 렌더링(두 번째 인자값 [])이 되었을 때에만 data.json을 호출한다.
   // axios 통신으로 data.json 파일에 있는 데이터를 get 한다.
@@ -13,7 +14,42 @@ function ResumePage() {
     axios.get("data.json").then(function (response) {
       // 성공 핸들링
       // response는 data.json 안에 json 형식으로 되어 있는 모든 데이터를 뜻한다.
-      setDataObj(response.data); // set함수를 활용하여 dataObj 변수에 object 형식의 데이터를 대입한다.
+      const data = response.data;
+      setDataObj(data); // set함수를 활용하여 dataObj 변수에 object 형식의 데이터를 대입한다.
+
+      // 모든 title1, subTitle, skill, institute 값을 초기값으로 설정
+      const initialClickObj = [
+        ...data.experience.flatMap((item) => [item.title1, item.subTitle]),
+        ...data.education.flatMap((item) => [item.title1, item.subTitle]),
+        ...data.skill.flatMap((item) => [item.title1, item.subTitle]),
+        ...data.institute.flatMap((item) => [item.title1, item.subTitle]),
+      ];
+
+      const initialRotationState = {
+        ...data.experience.reduce((acc, item) => {
+          acc[item.title1] = true;
+          acc[item.subTitle] = true;
+          return acc;
+        }, {}),
+        ...data.education.reduce((acc, item) => {
+          acc[item.title1] = true;
+          acc[item.subTitle] = true;
+          return acc;
+        }, {}),
+        ...data.skill.reduce((acc, item) => {
+          acc[item.title1] = true;
+          acc[item.subTitle] = true;
+          return acc;
+        }, {}),
+        ...data.institute.reduce((acc, item) => {
+          acc[item.title1] = true;
+          acc[item.subTitle] = true;
+          return acc;
+        }, {}),
+      };
+
+      setClickObj(initialClickObj);
+      setRotationState(initialRotationState);
     });
   }, []);
 
@@ -47,11 +83,29 @@ function ResumePage() {
     }
   };
 
+  const toggleClickRotate = (toggleClickValue) => {
+    // Toggle the click state
+    if (clickObj.includes(toggleClickValue)) {
+      setClickObj(clickObj.filter((item) => item !== toggleClickValue));
+    } else {
+      setClickObj([...clickObj, toggleClickValue]);
+    }
+
+    // Update the rotation state
+    setRotationState((prev) => ({
+      ...prev,
+      [toggleClickValue]: !prev[toggleClickValue],
+    }));
+  };
+
   return (
     <div className="content">
       <header className="header">
         <div className="emoji"></div>
-        <h1 className="title">신입 프론트엔드 개발자 조하윤입니다.</h1>
+        <h1 className="title">
+          신입 프론트엔드 개발자{" "}
+          <span className="mobile519block">조하윤입니다.</span>
+        </h1>
       </header>
       <section className="main">
         <h3 className="title">About Me</h3>
@@ -183,10 +237,11 @@ function ResumePage() {
 
         <div className="gray_hr mb_none"></div>
 
-        <div className="row_space"></div>
+        {/* <div className="row_space"></div> */}
+
         <h2 className="title_hidden">경력 사항</h2>
         <div className="career_wrap">
-          <article className="career">
+          {/* <article className="career">
             <h3 className="title">Summary</h3>
             <hr />
             {dataObj &&
@@ -199,19 +254,20 @@ function ResumePage() {
                   <ul className="box padding12">
                     <li>
                       <div>
-                        <img className="disc" src="icon_disc.svg" />
+                        <img className="disc icon_dark"
+                          src="icon_disc_dark.svg" />
                         <span>{item.summaryContent}</span>
                       </div>
                     </li>
                   </ul>
                 </div>
               ))}
-          </article>
+          </article> */}
 
           <div className="row_space"></div>
 
           <article className="career">
-            <h3 className="title">Experience</h3>
+            <h3 className="title">Experiences</h3>
             <hr />
             <div className="toggle_list font_grey">
               {dataObj &&
@@ -221,15 +277,30 @@ function ResumePage() {
                       <li>
                         <span
                           className="inline_flex"
-                          onClick={() => toggleClick(item.title1)}
+                          onClick={() => toggleClickRotate(item.title1)}
                         >
-                          <img className="toggle" src="icon_toggle.png" />
+                          <img
+                            className="toggle"
+                            src="icon_toggle.svg"
+                            style={{
+                              transform: rotationState[item.title1]
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
+                        </span>
+                        <span className="profile_key experiences">
+                          <span>직</span>
+                          <span>무</span>
+                          <span>&nbsp;</span>
+                          <span>이</span>
+                          <span>름</span>
                         </span>
                         <div>
                           <b>{item.title1}</b>
-                          <span className="pd_left6">{item.title2}</span>
+                          <b>&nbsp;/&nbsp;</b>
+                          <b>{item.title2}</b>
                         </div>
-                        <div className="italic depth1_date">{item.date}</div>
                       </li>
                     </ul>
                     <ul
@@ -239,12 +310,22 @@ function ResumePage() {
                           : "box hidden depth2"
                       }
                     >
+                      <div className="italic padding-left23">{item.date}</div>
+                      <div className="padding-left23 color37352f">
+                        <img
+                          className="disc icon_dark"
+                          src="icon_disc_dark.svg"
+                        />
+                        디자인 총괄, 기획 참여, 하이브리드 app의 퍼블리싱
+                        유지보수 담당
+                      </div>
+                      <div className="gray_hr mb_none"></div>
                       <li>
                         <span
                           className="inline_flex"
                           onClick={() => toggleClick(item.subTitle)}
                         >
-                          <img className="toggle" src="icon_toggle.png" />
+                          <img className="toggle" src="icon_toggle.svg" />
                         </span>
                         <div>
                           <span>{item.subTitle}</span>
@@ -263,7 +344,10 @@ function ResumePage() {
                     >
                       <li>
                         <span className="inline_flex">
-                          <img className="disc" src="icon_disc.svg" />
+                          <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          />
                         </span>
                         <div>
                           <span>3333333333333333333333333</span>
@@ -281,7 +365,10 @@ function ResumePage() {
                     >
                       <li>
                         <span className="inline_flex">
-                          <img className="disc" src="icon_disc.svg" />
+                          <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          />
                         </span>
                         <div>
                           <span>444444444444444444444444444</span>
@@ -295,7 +382,7 @@ function ResumePage() {
             </div>
           </article>
           <div className="row_space"></div>
-          <div className="tab_wrap font_grey">
+          {/* <div className="tab_wrap font_grey">
             {dataObj &&
               dataObj.tabName.map((item) => (
                 <div
@@ -351,92 +438,58 @@ function ResumePage() {
                   )
                 )}
             </div>
-          </article>
+          </article> */}
 
           <div className="row_space"></div>
 
           <article className="career">
-            <h3 className="title">Tools</h3>
-            <hr />
-            <div className="bullet_list vertlcal_sub">
-              <ul className="box padding12">
-                {dataObj &&
-                  dataObj.tools.map((item) => (
-                    <li key={item}>
-                      <div>
-                        <img className="disc" src="icon_disc.svg" />
-                        <span className="pd_left2">{item}</span>
-                      </div>
-                    </li>
-                  ))}
-              </ul>
-            </div>
-          </article>
-
-          <div className="row_space"></div>
-
-          <article className="career">
-            <h3 className="title">Awards</h3>
+            <h3 className="title">Education</h3>
             <hr />
             <div className="toggle_list font_grey">
               {dataObj &&
-                dataObj.awards.map((item) => (
+                dataObj.education.map((item) => (
                   <div key={item.title1}>
                     <ul className="box depth1">
                       <li>
                         <span
                           className="inline_flex"
-                          onClick={() => toggleClick(item.title1)}
+                          onClick={() => toggleClickRotate(item.title1)}
                         >
-                          <img className="toggle" src="icon_toggle.png" />
+                          <img
+                            className="toggle"
+                            src="icon_toggle.svg"
+                            style={{
+                              transform: rotationState[item.title1]
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
+                        </span>
+                        <span className="profile_key">
+                          <span>{item.tag[0]}</span>
+                          <span>{item.tag[1]}</span>
                         </span>
                         <div>
                           <b>{item.title1}</b>
-                          <span className="pd_left6">{item.title2}</span>
                         </div>
-                        <div className="italic depth1_date">{item.date}</div>
                       </li>
                     </ul>
-                    {item.content.length > 1 ? (
-                      item.content.map((item2) => (
-                        <ul
-                          className={
-                            clickObj.includes(item.title1)
-                              ? "box depth2"
-                              : "box hidden depth2"
-                          }
-                          key={item2}
-                        >
-                          <li>
-                            <span className="inline_flex">
-                              <img className="disc" src="icon_disc.svg" />
-                            </span>
-                            <div>
-                              <span className="pd_left6">{item2}</span>
-                            </div>
-                            <div></div>
-                          </li>
-                        </ul>
-                      ))
-                    ) : (
-                      <ul
-                        className={
-                          clickObj.includes(item.title1)
-                            ? "box depth2"
-                            : "box hidden depth2"
-                        }
-                      >
-                        <li>
-                          <span className="inline_flex">
-                            <img className="disc" src="icon_disc.svg" />
-                          </span>
-                          <div>
-                            <span className="pd_left6">{item.content}</span>
-                          </div>
-                          <div></div>
-                        </li>
-                      </ul>
-                    )}
+                    <ul
+                      className={
+                        clickObj.includes(item.title1)
+                          ? "box depth2"
+                          : "box hidden depth2"
+                      }
+                    >
+                      <div className="italic padding-left23">{item.date}</div>
+                      <div className="padding-left23 color37352f">
+                        <img
+                          className="disc icon_dark"
+                          src="icon_disc_dark.svg"
+                        />
+                        {item.content}
+                      </div>
+                    </ul>
                     <div className="gray_hr"></div>
                   </div>
                 ))}
@@ -446,45 +499,106 @@ function ResumePage() {
           <div className="row_space"></div>
 
           <article className="career">
-            <h3 className="title">Education</h3>
+            <h3 className="title">Skills</h3>
             <hr />
-            {dataObj &&
-              dataObj.education.map((item) => (
-                <div
-                  className="bullet_list flex_column font_grey"
-                  key={item.education}
-                >
-                  <ul className="box depth1">
-                    <li>
-                      <div>
-                        <span className="inline_flex">
-                          <img className="disc" src="icon_disc.svg" />
+            <div className="toggle_list font_grey">
+              {dataObj &&
+                dataObj.skill.map((item) => (
+                  <div key={item.title1}>
+                    <ul className="box depth1">
+                      <li className=" bullet-flex">
+                        <span
+                          className="inline_flex"
+                          onClick={() => toggleClickRotate(item.title1)}
+                        >
+                          <img
+                            className="toggle"
+                            src="icon_toggle.svg"
+                            style={{
+                              transform: rotationState[item.title1]
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
                         </span>
-                        <b>{item.education}</b>
-                      </div>
-                      <div className="italic depth1_date">{item.date}</div>
-                    </li>
-                    {/* <ul className='box hidden depth2'>
-                    <li>
-                      <div><span>Notion TF</span></div>
-                    </li>
-                  </ul> */}
+                        <div>
+                          <b>{item.title1}</b>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul
+                      className={
+                        clickObj.includes(item.title1)
+                          ? "box depth2"
+                          : "box hidden depth2"
+                      }
+                    >
+                      {/* <div className="italic padding-left23">{item.date}</div> */}
+                      {item.content1 && (
+                        <li className="padding-left23 color37352f">
+                          <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          />
+                          {item.content1}
+                        </li>
+                      )}
+                      {item.content2 && (
+                        <div className="padding-left23 color37352f bullet-flex">
+                          <span className="bullet-flex">
+                            <img
+                              className="disc icon_dark"
+                              src="icon_disc_dark.svg"
+                            />
+                          </span>
+                          {/* <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          /> */}
+                          {item.content2}
+                          {/* {item.content2[0]}
+                          {item.content2[1]}
+                          {item.content2[2]}
+                          {item.content2[3]} */}
+                          {/* <span className="mobile519block"> */}
+                          {/* <span className="mobilefix">{item.content2[3]}</span> */}
+                          {/* <span className="mobile519block"> */}
+                          {/* <div className="mobilefix">{item.content2[3]}</div> */}
+                        </div>
+                      )}
+                      {item.content3 && (
+                        <li className="padding-left23 color37352f">
+                          <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          />
+                          {item.content3}
+                        </li>
+                      )}
+                      {item.content4 && (
+                        <li className="padding-left23 color37352f">
+                          <img
+                            className="disc icon_dark"
+                            src="icon_disc_dark.svg"
+                          />
+                          {item.content4}
+                        </li>
+                      )}
+                    </ul>
                     <div className="gray_hr"></div>
-                  </ul>
-                </div>
-              ))}
+                  </div>
+                ))}
+            </div>
           </article>
 
-          <div className="row_space"></div>
-
-          <article className="career">
+          {/* <article className="career">
             <h3 className="title">Contact</h3>
             <hr />
             <div className="bullet_list flex_column contact_wrap font_grey">
               <div className="contact vertlcal_sub">
                 <p>
                   <span>
-                    <img className="disc" src="icon_disc.svg" />
+                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
                   </span>
                   <b>E-mail</b>
                 </p>
@@ -493,7 +607,7 @@ function ResumePage() {
               <div className="contact vertlcal_sub">
                 <p>
                   <span>
-                    <img className="disc" src="icon_disc.svg" />
+                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
                   </span>
                   <b>E-mail</b>
                 </p>
@@ -502,7 +616,7 @@ function ResumePage() {
               <div className="contact vertlcal_sub">
                 <p>
                   <span>
-                    <img className="disc" src="icon_disc.svg" />
+                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
                   </span>
                   <b>E-mail</b>
                 </p>
@@ -511,18 +625,73 @@ function ResumePage() {
               <div className="contact vertlcal_sub">
                 <p>
                   <span>
-                    <img className="disc" src="icon_disc.svg" />
+                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
                   </span>
                   <b>E-mail</b>
                 </p>
                 <p className="txt pd22">abc@gmail.com</p>
               </div>
             </div>
+          </article> */}
+          <div className="row_space"></div>
+
+          <article className="career">
+            <h3 className="title">Institute</h3>
+            <hr />
+            <div className="toggle_list font_grey">
+              {dataObj &&
+                dataObj.institute.map((item) => (
+                  <div key={item.title1}>
+                    <ul className="box depth1">
+                      <li>
+                        <span
+                          className="inline_flex"
+                          onClick={() => toggleClickRotate(item.title1)}
+                        >
+                          <img
+                            className="toggle"
+                            src="icon_toggle.svg"
+                            style={{
+                              transform: rotationState[item.title1]
+                                ? "rotate(90deg)"
+                                : "rotate(0deg)",
+                            }}
+                          />
+                        </span>
+                        <span className="profile_key">
+                          <span>졸</span>
+                          <span>업</span>
+                        </span>
+                        <div>
+                          <b>{item.title1}</b>
+                        </div>
+                      </li>
+                    </ul>
+                    <ul
+                      className={
+                        clickObj.includes(item.title1)
+                          ? "box depth2"
+                          : "box hidden depth2"
+                      }
+                    >
+                      <div className="italic padding-left23">{item.date}</div>
+                      <div className="padding-left23 color37352f bullet-flex">
+                        <img
+                          className="disc icon_dark"
+                          src="icon_disc_dark.svg"
+                        />
+                        {item.content}
+                      </div>
+                    </ul>
+                    <div className="gray_hr"></div>
+                  </div>
+                ))}
+            </div>
           </article>
           <hr />
-          <footer className="italic">
+          {/* <footer className="italic">
             <b>Latest Updated</b> @{}년 {}월 {}일
-          </footer>
+          </footer> */}
         </div>
       </section>
     </div>

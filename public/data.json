@@ -34,19 +34,37 @@
   ],
   "experience": [
     {
-      "title1": "NAVER",
-      "title2": "Product Designer",
+      "title1": "넥스컨텔레컴(주)",
+      "title2": "디자인, 퍼블리셔팀",
       "subTitle": ["TF", "TTTFFFFFF"],
       "content": ["사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"],
-      "date": ["2012.12 - 2023.21"],
+      "date": ["2022.07-2022.10"],
       "subDate": ["2012.12 - 2099.21"],
       "subContent": ["Tool 개발"]
     },
     {
-      "title1": "카카오",
-      "title2": "Product Designer",
+      "title1": "넛지커뮤니케이션즈",
+      "title2": "카페24팀",
       "subTitle": ["Kakao"],
-      "date": ["2012.12 - 2023.21"],
+      "date": ["2021.09-2022.07"],
+      "content": ["Kakao"]
+    }
+  ],
+  "experience222": [
+    {
+      "title1": "넥스컨텔레컴(주)",
+      "title2": "디자인, 퍼블리셔팀",
+      "subTitle": ["TF", "TTTFFFFFF"],
+      "content": ["사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"],
+      "date": ["2022.07-2022.10"],
+      "subDate": ["2012.12 - 2099.21"],
+      "subContent": ["Tool 개발"]
+    },
+    {
+      "title1": "넛지커뮤니케이션즈",
+      "title2": "카페24팀",
+      "subTitle": ["Kakao"],
+      "date": ["2021.09-2022.07"],
       "content": ["Kakao"]
     }
   ],
@@ -116,5 +134,62 @@
       "date": "2016.12 - 2017.05"
     }
   ],
-  "contact": [{}]
+  "education": [
+    {
+      "title1": "세종사이버대학교",
+      "tag": ["졸", "업"],
+      "date": ["2018.03-2021.06"],
+      "content": ["경영학과"]
+    },
+    {
+      "title1": "서울예술대학교",
+      "tag": ["중", "퇴"],
+      "date": ["2012.03-2012.12"],
+      "content": ["한국음악과"]
+    },
+    {
+      "title1": "전통예술고등학교",
+      "tag": ["졸", "업"],
+      "date": ["2010.03-2012.02"],
+      "content": ["한국음악과"]
+    }
+  ],
+  "skill": [
+    {
+      "title1": "협업",
+      "content1": ["GitHub"],
+      "content2": ["Slack"],
+      "content3": ["Trello"],
+      "content4": ["Notion"]
+    },
+    {
+      "title1": "개발",
+      "content1": ["HTML"],
+      "content2": ["CSS, SCSS, Styled-components, Bootstrap"],
+      "content3": ["JavaScript"],
+      "content4": ["React"]
+    },
+    {
+      "title1": "디자인",
+      "content1": ["PhotoShop"],
+      "content2": ["Figma"]
+    }
+  ],
+  "contact": [{}],
+  "institute": [
+    {
+      "title1": "슈퍼코딩 웹개발 취업 부트캠프",
+      "date": ["2023.06-2023.10"],
+      "content": [
+        "JavaScript, React, TypeScript(기초), Next.js(기초) 취업 준비 과정"
+      ]
+    },
+    {
+      "title1": "프론트엔드 웹 개발자 양성 과정",
+      "date": ["2023.01-2023.04"],
+      "content": [
+        "JavaScript, CSS Layout(flex, grid), SCSS, React 프론트엔드 웹 개발자 양성 과정"
+      ]
+    }
+  ]
 }
