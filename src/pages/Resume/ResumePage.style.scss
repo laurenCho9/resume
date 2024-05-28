@@ -72,6 +72,9 @@ footer.italic {
 .icon.gitbook {
   background-image: url("../../assets/icon_gitbook.png");
 }
+.width100 {
+  width: 100%;
+}
 
 /* layout - desktop */
 .content {
@@ -219,6 +222,12 @@ footer.italic {
 .introduce_wrap ul.box .bold {
   font-weight: 600;
 }
+.bold600 {
+  font-weight: 600;
+}
+.click {
+  cursor: pointer;
+}
 
 .bullet-flex {
   display: flex;
@@ -287,16 +296,16 @@ article.profile {
   flex: 9 1 520px;
 }
 
-.toggle_list ul li div:nth-child(2),
-.toggle_list ul li ul li div:nth-child(2),
-.toggle_list ul li ul li ul li div:nth-child(2),
-.toggle_list ul li ul li ul li ul li div:nth-child(2),
-.bullet_list ul li div:nth-child(2),
-.bullet_list ul li ul li div:nth-child(2),
-.bullet_list ul li ul li ul li div:nth-child(2),
-.bullet_list ul li ul li ul li ul li div:nth-child(2) {
-  flex: 1 1 150px;
-}
+// .toggle_list ul li div:nth-child(2),
+// .toggle_list ul li ul li div:nth-child(2),
+// .toggle_list ul li ul li ul li div:nth-child(2),
+// .toggle_list ul li ul li ul li ul li div:nth-child(2),
+// .bullet_list ul li div:nth-child(2),
+// .bullet_list ul li ul li div:nth-child(2),
+// .bullet_list ul li ul li ul li div:nth-child(2),
+// .bullet_list ul li ul li ul li ul li div:nth-child(2) {
+//   flex: 1 1 150px;
+// }
 
 .depth1_date {
   display: inline-flex;
@@ -305,6 +314,9 @@ article.profile {
 }
 .padding-left23 {
   padding-left: 23px;
+}
+.padding-left46 {
+  padding-left: 46px;
 }
 
 .toggle_list ul.depth1 > li,
@@ -319,7 +331,7 @@ ul.depth2 {
 
 .toggle_list ul.depth2 li,
 .bullet_list ul.depth2 li {
-  padding-left: 22px;
+  padding-left: 23px;
   align-items: baseline;
 }
 
@@ -337,6 +349,11 @@ ul.depth2 {
 
 .pd_left6 {
   padding-left: 6px;
+}
+
+.padding-top-bottom3 {
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .gray_hr.mg_top-1 {
@@ -357,6 +374,14 @@ ul.depth2 {
   margin: 6px 10px 1px 2px;
   transition-duration: 0.4s;
   transition: all 0.2s ease-out;
+}
+.image_icon {
+  // width: 10px;
+  // height: 11px;
+  // margin: 6px 10px 1px 2px;
+  width: 22px;
+  height: 22px;
+  margin: 1px 7px 1px 1px;
 }
 
 // .toggle:active {
@@ -533,7 +558,8 @@ footer {
   .photo {
     width: 100%;
     max-width: 366px;
-    height: 488px;
+    // height: 488px;
+    height: 334px;
     display: flex;
     justify-content: center;
     margin-bottom: 24px;

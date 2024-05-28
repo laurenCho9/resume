@@ -36,36 +36,50 @@
     {
       "title1": "넥스컨텔레컴(주)",
       "title2": "디자인, 퍼블리셔팀",
-      "subTitle": ["TF", "TTTFFFFFF"],
-      "content": ["사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"],
       "date": ["2022.07-2022.10"],
-      "subDate": ["2012.12 - 2099.21"],
-      "subContent": ["Tool 개발"]
+      "content1": [
+        "디자인 총괄, 기획 참여, 하이브리드 APP의 퍼블리싱 유지보수 담당"
+      ],
+      "portfolio": ["작업한 Project 산출물"],
+      "portfolioContent1": { "id": 1, "name": "Editorial" },
+      "portfolioContent2": { "id": 2, "name": "APP, ETC" }
     },
     {
       "title1": "넛지커뮤니케이션즈",
       "title2": "카페24팀",
-      "subTitle": ["Kakao"],
       "date": ["2021.09-2022.07"],
-      "content": ["Kakao"]
-    }
-  ],
-  "experience222": [
-    {
-      "title1": "넥스컨텔레컴(주)",
-      "title2": "디자인, 퍼블리셔팀",
-      "subTitle": ["TF", "TTTFFFFFF"],
-      "content": ["사업 우선 순위에 맞춰 필요한 툴을 개발하는 것이 목적"],
-      "date": ["2022.07-2022.10"],
-      "subDate": ["2012.12 - 2099.21"],
-      "subContent": ["Tool 개발"]
-    },
-    {
-      "title1": "넛지커뮤니케이션즈",
-      "title2": "카페24팀",
-      "subTitle": ["Kakao"],
-      "date": ["2021.09-2022.07"],
-      "content": ["Kakao"]
+      "content1": ["웹 에이전시"],
+      "content2": [
+        "웹디자인, 웹퍼블리싱 업무 (카페24 쇼핑몰 신규, 유지보수 담당)"
+      ],
+      "content3": ["회사 홈페이지"],
+      "portfolio": ["작업한 Project 산출물"],
+      "portfolioContent1": {
+        "id": 3,
+        "name": "Cafe24"
+      },
+      "portfolioContent2": { "id": 4, "name": "Wordpress" },
+      "subTitle": ["Projects"],
+      "projects": [
+        {
+          "projectNO": "1",
+          "projectName": "값진푸드 쇼핑몰 - 적응형 웹 (3개월)",
+          "projectContribution": "기여도 100% : 카페24 기반 사이트 전체 페이지의 디자인, 퍼블리싱",
+          "projectOutput": "http://kabjinfood.com/"
+        },
+        {
+          "projectNO": "2",
+          "projectName": "비아와치 쇼핑몰 - 반응형 웹 (2개월)",
+          "projectContribution": "기여도 25% : 카페24 기반 사이트 전체 페이지의 퍼블리싱",
+          "projectOutput": "https://viawatch.co.kr/"
+        },
+        {
+          "projectNO": "3",
+          "projectName": "아키핀 - 반응형 웹 (1개월)",
+          "projectContribution": "기여도 20% : 워드프레스 기반 사이트 내 PRODUCT 하위 3가지 메뉴의 디자인, 퍼블리싱",
+          "projectOutput": "http://archipin.com/"
+        }
+      ]
     }
   ],
   "tabName": [
@@ -126,16 +140,6 @@
   ],
   "education": [
     {
-      "education": "한국대학교",
-      "date": "2016.12 - 2017.05"
-    },
-    {
-      "education": "한국아카데미",
-      "date": "2016.12 - 2017.05"
-    }
-  ],
-  "education": [
-    {
       "title1": "세종사이버대학교",
       "tag": ["졸", "업"],
       "date": ["2018.03-2021.06"],
@@ -189,6 +193,147 @@
       "date": ["2023.01-2023.04"],
       "content": [
         "JavaScript, CSS Layout(flex, grid), SCSS, React 프론트엔드 웹 개발자 양성 과정"
+      ]
+    }
+  ],
+  "projectImages": [
+    {
+      "title": "Editorial",
+      "id": 1,
+      "detail": [
+        {
+          "name": "X배너 디자인",
+          "subImage1": "/project-images/editorial-xbanner/img01.jpeg",
+          "subImage2": "/project-images/editorial-xbanner/img02.jpeg",
+          "subImage3": "/project-images/editorial-xbanner/img03.jpeg"
+        },
+        {
+          "name": "현수막 디자인",
+          "subImage1": "/project-images/editorial-banner/img01.jpeg",
+          "subImage2": "/project-images/editorial-banner/img02.jpeg"
+        },
+        {
+          "name": "전광판 디자인",
+          "subImage1": "/project-images/editorial-electronic_display_board/img01.png",
+          "subImage2": "/project-images/editorial-electronic_display_board/img02.jpeg",
+          "subImage3": "/project-images/editorial-electronic_display_board/img03.jpeg",
+          "subImage4": "/project-images/editorial-electronic_display_board/img04.jpeg",
+          "subImage5": "/project-images/editorial-electronic_display_board/img05.jpeg"
+        },
+        {
+          "name": "키오스크 디자인",
+          "subImage1": "/project-images/editorial-kiosk/img01.jpeg",
+          "subImage2": "/project-images/editorial-kiosk/img02.jpeg",
+          "subImage3": "/project-images/editorial-kiosk/img03.jpeg"
+        }
+      ]
+    },
+    {
+      "title": "APP, ETC",
+      "id": 2,
+      "detail": [
+        {
+          "name": "APP 디자인",
+          "subImage1": "/project-images/etc-app/img01.png",
+          "subImage2": "/project-images/etc-app/img02.png",
+          "subImage3": "/project-images/etc-app/img03.png",
+          "subImage4": "/project-images/etc-app/img04.png"
+        },
+        {
+          "name": "Logo 디자인",
+          "subImage1": "/project-images/etc-logo/img01.png",
+          "subImage2": "/project-images/etc-logo/img02.png",
+          "subImage3": "/project-images/etc-logo/img03.png"
+        }
+      ]
+    },
+    {
+      "title": "Cafe24",
+      "id": 3,
+      "detail": [
+        {
+          "name": "양프로마켓",
+          "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/cafe24-yangpro/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/cafe24-yangpro/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/cafe24-yangpro/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/cafe24-yangpro/description.jpg"
+        },
+        {
+          "name": "값진푸드",
+          "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/cafe24-gapjinfood/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/cafe24-gapjinfood/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/cafe24-gapjinfood/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/cafe24-gapjinfood/description.jpg"
+        },
+        {
+          "name": "엘케이마켓",
+          "contribution": "기여도 70% : 디자인20% & 퍼블리싱50% (로고는 전달받은 것에서 컬러만 디벨롭)",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/cafe24-lkmarket/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/cafe24-lkmarket/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/cafe24-lkmarket/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/cafe24-lkmarket/description.jpg"
+        },
+        {
+          "name": "비아와치",
+          "contribution": "기여도 25% : 퍼블리싱 및 로고 제작",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/cafe24-viawatch/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/cafe24-viawatch/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/cafe24-viawatch/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/cafe24-viawatch/description.jpg"
+        },
+        {
+          "name": "논스톱캐노피",
+          "contribution": "기여도 50% : 퍼블리싱 (로고 제외)",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/cafe24-nonstop/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/cafe24-nonstop/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/cafe24-nonstop/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/cafe24-nonstop/description.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Wordpress",
+      "id": 4,
+      "detail": [
+        {
+          "name": "모두의 쉐푸",
+          "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/wordpress-chef/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/wordpress-chef/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/wordpress-chef/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/wordpress-chef/description.jpg"
+        },
+        {
+          "name": "해명산업개발",
+          "contribution": "기여도 100% : 디자인&퍼블리싱 및 로고 제작",
+          "thumbnail": "메인페이지(썸네일)",
+          "thumbnailImage": "/project-images/wordpress-haemyung/thumbnail.jpg",
+          "mockup": "반응형(목업)",
+          "mockupPCImage": "/project-images/wordpress-haemyung/mockup-pc.jpg",
+          "mockupMobileImage": "/project-images/wordpress-haemyung/mockup-mobile.jpg",
+          "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
+          "descriptionImage": "/project-images/wordpress-haemyung/description.jpg"
+        }
       ]
     }
   ]

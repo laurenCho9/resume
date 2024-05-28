@@ -10746,6 +10746,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-icons@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-icons@npm:5.2.1"
+  peerDependencies:
+    react: "*"
+  checksum: f084ea7409a3986c03b7805d0787d8526e2c988439a39f485cc526ec1b2eb6ec78e7b69345478151ce94bca8522737c6569203c8ab8b8ff08542b496f954bdfb
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -11180,6 +11189,7 @@ __metadata:
     axios: ^1.2.4
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-icons: ^5.2.1
     react-router-dom: ^6.6.2
     react-scripts: 5.0.1
     sass: ^1.77.0

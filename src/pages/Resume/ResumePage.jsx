@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./ResumePage.style.scss";
+import { FcPicture } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 function ResumePage() {
   let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
@@ -98,12 +100,18 @@ function ResumePage() {
     }));
   };
 
+  const navigate = useNavigate();
+
+  const navigateToPortfolio = (id) => {
+    navigate(`/projectImage/${id}`);
+  };
+
   return (
     <div className="content">
       <header className="header">
         <div className="emoji"></div>
         <h1 className="title">
-          신입 프론트엔드 개발자{" "}
+          신입 프론트엔드 개발자&nbsp;
           <span className="mobile519block">조하윤입니다.</span>
         </h1>
       </header>
@@ -217,20 +225,6 @@ function ResumePage() {
                   </ul>
                 </div>
               </li>
-
-              {/* <li className="embed">
-                <article className="link_wrap">
-                  <p className="title"></p>
-                  <p className="txt"></p>
-                  <a className="address">
-                    <span className="icon github"></span>https://naver.com
-                  </a>
-                </article>
-                <div className="link_img"></div>
-              </li>
-              <li className="address">
-                <span />
-              </li> */}
             </ul>
           </article>
         </div>
@@ -241,29 +235,6 @@ function ResumePage() {
 
         <h2 className="title_hidden">경력 사항</h2>
         <div className="career_wrap">
-          {/* <article className="career">
-            <h3 className="title">Summary</h3>
-            <hr />
-            {dataObj &&
-              dataObj.summary.map((item) => (
-                <div
-                  className="bullet_list vertlcal_sub ratio_1_2"
-                  key={item.summaryContent}
-                >
-                  <p className="period padding12">{item.date}</p>
-                  <ul className="box padding12">
-                    <li>
-                      <div>
-                        <img className="disc icon_dark"
-                          src="icon_disc_dark.svg" />
-                        <span>{item.summaryContent}</span>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              ))}
-          </article> */}
-
           <div className="row_space"></div>
 
           <article className="career">
@@ -310,136 +281,188 @@ function ResumePage() {
                           : "box hidden depth2"
                       }
                     >
-                      <div className="italic padding-left23">{item.date}</div>
-                      <div className="padding-left23 color37352f">
+                      <div className="italic padding-left23 padding-top-bottom3">
+                        {item.date}
+                      </div>
+                      <div className="padding-left23 color37352f padding-top-bottom3 bullet-flex">
                         <img
                           className="disc icon_dark"
                           src="icon_disc_dark.svg"
                         />
-                        디자인 총괄, 기획 참여, 하이브리드 app의 퍼블리싱
-                        유지보수 담당
+                        {item.content1}
                       </div>
-                      <div className="gray_hr mb_none"></div>
-                      <li>
-                        <span
-                          className="inline_flex"
-                          onClick={() => toggleClick(item.subTitle)}
-                        >
-                          <img className="toggle" src="icon_toggle.svg" />
-                        </span>
-                        <div>
-                          <span>{item.subTitle}</span>
-                          <span className="pd_left6">{item.subDate}</span>
-                        </div>
-                        <div></div>
-                      </li>
-                    </ul>
-                    <ul
-                      className={
-                        clickObj.includes(item.subTitle) &&
-                        clickObj.includes(item.title1)
-                          ? "box depth3"
-                          : "box hidden depth3"
-                      }
-                    >
-                      <li>
-                        <span className="inline_flex">
+                      {item.content2 && (
+                        <div className="padding-left23 color37352f padding-top-bottom3 bullet-flex">
                           <img
                             className="disc icon_dark"
                             src="icon_disc_dark.svg"
                           />
-                        </span>
-                        <div>
-                          <span>3333333333333333333333333</span>
+                          {item.content2}
                         </div>
-                        <div></div>
-                      </li>
-                    </ul>
-                    <ul
-                      className={
-                        clickObj.includes(item.subTitle) &&
-                        clickObj.includes(item.title1)
-                          ? "box depth4"
-                          : "box hidden depth4"
-                      }
-                    >
-                      <li>
-                        <span className="inline_flex">
+                      )}
+                      {item.content3 && (
+                        <div className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
                             src="icon_disc_dark.svg"
                           />
-                        </span>
-                        <div>
-                          <span>444444444444444444444444444</span>
+                          <a
+                            href="https://nudgecomms.com/sub02/project/"
+                            target="_blank"
+                          >
+                            {item.content3}
+                            <b> ↗︎</b>
+                          </a>
                         </div>
-                        <div></div>
-                      </li>
+                      )}
+                      <div className="padding-left23 color37352f padding-top-bottom3">
+                        <img
+                          className="disc icon_dark"
+                          src="icon_disc_dark.svg"
+                        />
+                        <b>{item.portfolio}</b>
+                      </div>
+
+                      {/* portfolio contents */}
+                      <div
+                        className="padding-left46 color37352f padding-top-bottom3 flex click"
+                        onClick={() =>
+                          navigateToPortfolio(item.portfolioContent1.id)
+                        }
+                      >
+                        <FcPicture className="image_icon" />
+                        <span className="bold600">
+                          {item.portfolioContent1.name}
+                          <b> ↗︎</b>
+                        </span>
+                      </div>
+                      <div
+                        className="padding-left46 color37352f padding-top-bottom3 flex click"
+                        onClick={() =>
+                          navigateToPortfolio(item.portfolioContent2.id)
+                        }
+                      >
+                        <FcPicture className="image_icon" />
+                        <span className="bold600">
+                          {item.portfolioContent2.name}
+                          <b> ↗︎</b>
+                        </span>
+                      </div>
+                      {item.portfolioContent3 && (
+                        <div className="padding-left46 color37352f padding-top-bottom3 flex click">
+                          <FcPicture className="image_icon" />
+                          <span className="bold600">
+                            {item.portfolioContent3}
+                            <b> ↗︎</b>
+                          </span>
+                        </div>
+                      )}
+                      {item.portfolioContent4 && (
+                        <div className="padding-left46 color37352f padding-top-bottom3 flex click">
+                          <FcPicture className="image_icon" />
+                          <span className="bold600">
+                            {item.portfolioContent4}
+                            <b> ↗︎</b>
+                          </span>
+                        </div>
+                      )}
+
+                      {/* <div className="gray_hr mb_none"></div> */}
+                      {item.subTitle && (
+                        <li className="padding-left23">
+                          <span
+                            className="inline_flex"
+                            onClick={() => toggleClickRotate(item.subTitle)}
+                          >
+                            <img
+                              style={{
+                                transform: rotationState[item.subTitle]
+                                  ? "rotate(90deg)"
+                                  : "rotate(0deg)",
+                              }}
+                              className="toggle"
+                              src="icon_toggle.svg"
+                            />
+                          </span>
+                          <div>
+                            <b>{item.subTitle}</b>
+                          </div>
+                          <div></div>
+                        </li>
+                      )}
                     </ul>
+                    {item.subTitle && (
+                      <ul
+                        className={
+                          clickObj.includes(item.subTitle) &&
+                          clickObj.includes(item.title1)
+                            ? "box depth3"
+                            : "box hidden depth3"
+                        }
+                      >
+                        {item.projects.map((projectItem, projectName) => (
+                          <li key={projectName}>
+                            {/* <div> */}
+                            <div className="padding-top-bottom3">
+                              <b>{projectItem.projectNO}&#41;&nbsp;</b>
+                              <b>{projectItem.projectName}</b>
+                            </div>
+                            <div className="width100 padding-top-bottom3 bullet-flex">
+                              <span>
+                                <img
+                                  className="disc icon_dark"
+                                  src="icon_disc_dark.svg"
+                                />
+                              </span>
+                              <span className="color37352f">
+                                {projectItem.projectContribution}
+                              </span>
+                            </div>
+                            <div className="width100 padding-top-bottom3">
+                              <span>
+                                <img
+                                  className="disc icon_dark"
+                                  src="icon_disc_dark.svg"
+                                />
+                              </span>
+                              <span>
+                                <span className="color37352f">
+                                  산출물 :&nbsp;
+                                </span>
+                                <a
+                                  // href={encodeURI(projectItem.projectOutput)}
+                                  href={projectItem.projectOutput}
+                                  target="_blank"
+                                  className="color37352f"
+                                >
+                                  {projectItem.projectOutput}
+                                </a>
+                              </span>
+                            </div>
+                            {/* </div> */}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {item.subTitle && (
+                      <ul
+                        className={
+                          clickObj.includes(item.subTitle) &&
+                          clickObj.includes(item.title1)
+                            ? "box depth4"
+                            : "box hidden depth4"
+                        }
+                      >
+                        <li>
+                          <div>그 외 9개 서비스 출시</div>
+                        </li>
+                      </ul>
+                    )}
                     <div className="gray_hr"></div>
                   </div>
                 ))}
             </div>
           </article>
-          <div className="row_space"></div>
-          {/* <div className="tab_wrap font_grey">
-            {dataObj &&
-              dataObj.tabName.map((item) => (
-                <div
-                  className={
-                    tabFocusCss === item.name ? "tab_btn focus" : "tab_btn"
-                  }
-                  onClick={(e) => setTabFocusCss(e.target.textContent)}
-                  key={item.name}
-                >
-                  <span className="tab_txt pd_left6">{item.name}</span>
-                </div>
-              ))}
-          </div>
-          <div className="gray_hr mg_top-1"></div>
-
-          <article className="career">
-            <h3 className="title">{tabFocusCss}</h3>
-            <div className="gallery_wrap">
-              {dataObj &&
-                dataObj.work.map((item) =>
-                  tabFocusCss !== "All" ? (
-                    item.tag === tabFocusCss ? (
-                      <div className="gallery" key={item.title}>
-                        <div className="thumbnail"></div>
-                        <div className="txt">
-                          <p className="title">
-                            <span>{item.icon}</span>
-                            <b> {item.title}</b>
-                          </p>
-                          <p className="date">{item.date}</p>
-                          <p className="tag">
-                            <span>{item.tag}</span>
-                          </p>
-                        </div>
-                      </div>
-                    ) : (
-                      ""
-                    )
-                  ) : (
-                    <div className="gallery" key={item.title}>
-                      <div className="thumbnail"></div>
-                      <div className="txt">
-                        <p className="title">
-                          <span>{item.icon}</span>
-                          <b> {item.title}</b>
-                        </p>
-                        <p className="date">{item.date}</p>
-                        <p className="tag">
-                          <span>{item.tag}</span>
-                        </p>
-                      </div>
-                    </div>
-                  )
-                )}
-            </div>
-          </article> */}
-
           <div className="row_space"></div>
 
           <article className="career">
@@ -481,8 +504,10 @@ function ResumePage() {
                           : "box hidden depth2"
                       }
                     >
-                      <div className="italic padding-left23">{item.date}</div>
-                      <div className="padding-left23 color37352f">
+                      <div className="italic padding-left23 padding-top-bottom3">
+                        {item.date}
+                      </div>
+                      <div className="padding-left23 color37352f padding-top-bottom3">
                         <img
                           className="disc icon_dark"
                           src="icon_disc_dark.svg"
@@ -533,9 +558,8 @@ function ResumePage() {
                           : "box hidden depth2"
                       }
                     >
-                      {/* <div className="italic padding-left23">{item.date}</div> */}
                       {item.content1 && (
-                        <li className="padding-left23 color37352f">
+                        <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
                             src="icon_disc_dark.svg"
@@ -544,30 +568,18 @@ function ResumePage() {
                         </li>
                       )}
                       {item.content2 && (
-                        <div className="padding-left23 color37352f bullet-flex">
+                        <div className="padding-left23 color37352f bullet-flex padding-top-bottom3">
                           <span className="bullet-flex">
                             <img
                               className="disc icon_dark"
                               src="icon_disc_dark.svg"
                             />
                           </span>
-                          {/* <img
-                            className="disc icon_dark"
-                            src="icon_disc_dark.svg"
-                          /> */}
                           {item.content2}
-                          {/* {item.content2[0]}
-                          {item.content2[1]}
-                          {item.content2[2]}
-                          {item.content2[3]} */}
-                          {/* <span className="mobile519block"> */}
-                          {/* <span className="mobilefix">{item.content2[3]}</span> */}
-                          {/* <span className="mobile519block"> */}
-                          {/* <div className="mobilefix">{item.content2[3]}</div> */}
                         </div>
                       )}
                       {item.content3 && (
-                        <li className="padding-left23 color37352f">
+                        <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
                             src="icon_disc_dark.svg"
@@ -576,7 +588,7 @@ function ResumePage() {
                         </li>
                       )}
                       {item.content4 && (
-                        <li className="padding-left23 color37352f">
+                        <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
                             src="icon_disc_dark.svg"
@@ -591,48 +603,6 @@ function ResumePage() {
             </div>
           </article>
 
-          {/* <article className="career">
-            <h3 className="title">Contact</h3>
-            <hr />
-            <div className="bullet_list flex_column contact_wrap font_grey">
-              <div className="contact vertlcal_sub">
-                <p>
-                  <span>
-                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
-                  </span>
-                  <b>E-mail</b>
-                </p>
-                <p className="txt pd22">abc@gmail.com</p>
-              </div>
-              <div className="contact vertlcal_sub">
-                <p>
-                  <span>
-                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
-                  </span>
-                  <b>E-mail</b>
-                </p>
-                <p className="txt pd22">abc@gmail.com</p>
-              </div>
-              <div className="contact vertlcal_sub">
-                <p>
-                  <span>
-                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
-                  </span>
-                  <b>E-mail</b>
-                </p>
-                <p className="txt pd22">abc@gmail.com</p>
-              </div>
-              <div className="contact vertlcal_sub">
-                <p>
-                  <span>
-                    <img className="disc icon_dark" src="icon_disc_dark.svg" />
-                  </span>
-                  <b>E-mail</b>
-                </p>
-                <p className="txt pd22">abc@gmail.com</p>
-              </div>
-            </div>
-          </article> */}
           <div className="row_space"></div>
 
           <article className="career">
@@ -674,8 +644,10 @@ function ResumePage() {
                           : "box hidden depth2"
                       }
                     >
-                      <div className="italic padding-left23">{item.date}</div>
-                      <div className="padding-left23 color37352f bullet-flex">
+                      <div className="italic padding-left23 padding-top-bottom3">
+                        {item.date}
+                      </div>
+                      <div className="padding-left23 color37352f bullet-flex padding-top-bottom3">
                         <img
                           className="disc icon_dark"
                           src="icon_disc_dark.svg"

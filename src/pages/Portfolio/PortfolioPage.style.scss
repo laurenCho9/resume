@@ -48,13 +48,13 @@ footer.italic {
 }
 
 /* img */
-.photo,
-.link_img,
-.thumbnail {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+// .photo,
+// .link_img,
+// .thumbnail {
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 
 .icon.github {
   background-image: url("../../assets/icon_github.png");
@@ -114,14 +114,14 @@ footer.italic {
   position: relative;
 }
 
-.photo {
-  width: 207px;
-  // width: 450px;
-  height: 276px;
-  background-image: url("../../assets/profile-image.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+// .photo {
+//   width: 207px;
+//   // width: 450px;
+//   height: 276px;
+//   background-image: url("../../assets/profile-image.png");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+// }
 
 .flex {
   display: flex;
@@ -276,16 +276,16 @@ footer.italic {
   flex: 9 1 520px;
 }
 
-.toggle_list ul li div:nth-child(2),
-.toggle_list ul li ul li div:nth-child(2),
-.toggle_list ul li ul li ul li div:nth-child(2),
-.toggle_list ul li ul li ul li ul li div:nth-child(2),
-.bullet_list ul li div:nth-child(2),
-.bullet_list ul li ul li div:nth-child(2),
-.bullet_list ul li ul li ul li div:nth-child(2),
-.bullet_list ul li ul li ul li ul li div:nth-child(2) {
-  flex: 1 1 150px;
-}
+// .toggle_list ul li div:nth-child(2),
+// .toggle_list ul li ul li div:nth-child(2),
+// .toggle_list ul li ul li ul li div:nth-child(2),
+// .toggle_list ul li ul li ul li ul li div:nth-child(2),
+// .bullet_list ul li div:nth-child(2),
+// .bullet_list ul li ul li div:nth-child(2),
+// .bullet_list ul li ul li ul li div:nth-child(2),
+// .bullet_list ul li ul li ul li ul li div:nth-child(2) {
+//   flex: 1 1 150px;
+// }
 
 .depth1_date {
   display: inline-flex;
@@ -305,7 +305,8 @@ ul.depth2 {
 
 .toggle_list ul.depth2 li,
 .bullet_list ul.depth2 li {
-  padding-left: 22px;
+  // padding-left: 22px;
+  padding-left: 23px;
   align-items: baseline;
 }
 
@@ -557,14 +558,14 @@ article.profile {
     padding: 0 24px;
   }
 
-  .photo {
-    width: 100%;
-    max-width: 366px;
-    height: 488px;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
-  }
+  // .photo {
+  //   width: 100%;
+  //   max-width: 366px;
+  //   height: 488px;
+  //   display: flex;
+  //   justify-content: center;
+  //   margin-bottom: 24px;
+  // }
 
   .introduce_wrap ul.box.introduce {
     margin-top: 10px;
