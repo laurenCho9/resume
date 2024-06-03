@@ -111,8 +111,8 @@ function ResumePage() {
       <header className="header">
         <div className="emoji"></div>
         <h1 className="title">
-          신입 프론트엔드 개발자&nbsp;
-          <span className="mobile519block">조하윤입니다.</span>
+          입사 후 1년 내에 3가지를&nbsp;
+          <span className="mobile519block">자신있게 약속드립니다.</span>
         </h1>
       </header>
       <section className="main">
@@ -198,8 +198,11 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        프론트엔드 개발자가 되기 위해 웹디자인과 퍼블리싱 경험을
-                        시작으로 진심을 다하고 있는 조하윤입니다.
+                        <b>코드 품질 향상</b>
+                        <span className="block padding-top-bottom3">
+                          1년 안에 코드베이스의 유지보수성을 높여 개발 효율성을
+                          25% 향상시키겠습니다.
+                        </span>
                       </span>
                     </li>
                     <li className="txt bullet-flex">
@@ -209,8 +212,13 @@ function ResumePage() {
                           src="icon_disc_dark.svg"
                         />
                       </span>
-                      다양한 협업 경험으로 열정을 키웠고 이를 통해 꾸준하게
-                      배우며 성장중입니다.
+                      <span>
+                        <b>새로운 기능 개발</b>
+                        <span className="block padding-top-bottom3">
+                          1년 안에 주요 제품에 새로운 기능을 추가하여 사용자
+                          편의성을 증대시키겠습니다.
+                        </span>
+                      </span>
                     </li>
                     <li className="txt bullet-flex">
                       <span className="inline_flex">
@@ -219,8 +227,13 @@ function ResumePage() {
                           src="icon_disc_dark.svg"
                         />
                       </span>
-                      열정과 끊임없는 성장을 추구하며, 역량을 펼치기 위해 새로운
-                      도약을 도전중입니다.
+                      <span>
+                        <b>성능 최적화</b>
+                        <span className="block padding-top-bottom3">
+                          1년 안에 웹사이트 로딩 속도를 20% 향상시켜 사용자
+                          만족도를 높이겠습니다.
+                        </span>
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -403,7 +416,7 @@ function ResumePage() {
                         {item.projects.map((projectItem, projectName) => (
                           <li key={projectName}>
                             {/* <div> */}
-                            <div className="padding-top-bottom3">
+                            <div className="width100 padding-top-bottom3">
                               <b>{projectItem.projectNO}&#41;&nbsp;</b>
                               <b>{projectItem.projectName}</b>
                             </div>
