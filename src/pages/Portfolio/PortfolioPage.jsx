@@ -149,7 +149,7 @@ function PortfolioPage() {
                   <h4>이력서 팀프로젝트 (2인)</h4>
                   <div>
                     <a
-                      href="https://resume-team-project-lltqbrhn2-laurencho9s-projects.vercel.app/"
+                      href="https://resume-team-project.vercel.app/"
                       target="_blank"
                       className="underline"
                     >
