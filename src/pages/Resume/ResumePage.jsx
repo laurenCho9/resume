@@ -228,10 +228,10 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>성능 최적화</b>
+                        <b>개발 프로세스 개선</b>
                         <span className="block padding-top-bottom3">
-                          1년 안에 웹사이트 로딩 속도를 20% 향상시켜 사용자
-                          만족도를 높이겠습니다.
+                          귀사에 입사하여 1년 안에 개발 프로세스를 효율화하여 팀
+                          생산성을 20% 향상시키겠습니다.
                         </span>
                       </span>
                     </li>
