@@ -121,32 +121,6 @@ function ResumePage() {
           <div className="photo"></div>
           <div className="column_space"></div>
           <article className="profile">
-            {/* {dataObj &&
-              dataObj.profile.map((item) => (
-                <ul className="box" key={item.headline}>
-                  <li className="bold">{item.headline}</li>
-                  {!item.address.includes("@") ? (
-                    <li
-                      onClick={() => profileAreaClick(item.address)}
-                      className="embed"
-                    >
-                      <article className="link_wrap">
-                        <p className="title">{item.title}</p>
-                        <p className="txt">{item.txt}</p>
-                        <a className="address">
-                          <span className="icon github"></span>https://naver.com
-                        </a>
-                      </article>
-                      <div className="link_img"></div>
-                    </li>
-                  ) : (
-                    <li className="address">
-                      <span className={item.icon} />
-                      {item.address}
-                    </li>
-                  )}
-                </ul>
-              ))} */}
             <ul className="box">
               <li className="bold flex">
                 <div className="profile_key">
@@ -198,27 +172,10 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>개발 프로세스 개선</b>
-                        <span className="block padding-top-bottom3">
-                          귀사에 입사하여 1년 안에 매뉴얼을 빠르게 숙지하고, 현
-                          개발 프로세스를 분석하여 효율성을 15%
-                          향상시키겠습니다.
-                        </span>
-                      </span>
-                    </li>
-                    <li className="txt bullet-flex">
-                      <span className="inline_flex">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
-                      </span>
-                      <span>
                         <b>코드 품질 향상</b>
                         <span className="block padding-top-bottom3">
-                          귀사에 입사하여 테스트 케이스를 세분화하고 코드 리뷰
-                          프로세스를 강화하여 버그 발생률을 20%
-                          감소시키겠습니다.
+                          1년 안에 코드베이스의 유지보수성을 높여 개발 효율성을
+                          25% 향상시키겠습니다.
                         </span>
                       </span>
                     </li>
@@ -230,11 +187,25 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>협업 효율성 증대</b>
+                        <b>새로운 기능 개발</b>
                         <span className="block padding-top-bottom3">
-                          귀사에 입사하여 협업 도구와 워크플로우를 최적화하고,
-                          동료들의 성향을 존중하여 커뮤니케이션 효율성을 15%
-                          개선시키겠습니다.
+                          1년 안에 주요 제품에 새로운 기능을 추가하여 사용자
+                          편의성을 증대시키겠습니다.
+                        </span>
+                      </span>
+                    </li>
+                    <li className="txt bullet-flex">
+                      <span className="inline_flex">
+                        <img
+                          className="disc icon_dark"
+                          src="icon_disc_dark.svg"
+                        />
+                      </span>
+                      <span>
+                        <b>개발 프로세스 개선</b>
+                        <span className="block padding-top-bottom3">
+                          귀사에 입사하여 1년 안에 개발 프로세스를 효율화하여 팀
+                          생산성을 20% 향상시키겠습니다.
                         </span>
                       </span>
                     </li>
