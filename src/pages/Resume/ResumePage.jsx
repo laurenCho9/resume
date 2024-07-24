@@ -111,8 +111,9 @@ function ResumePage() {
       <header className="header">
         <div className="emoji"></div>
         <h1 className="title">
-          입사 후 1년 내에 3가지를&nbsp;
-          <span className="mobile519block">자신있게 약속드립니다.</span>
+          신입 프론트엔드 개발자 조하윤입니다
+          {/* 입사 후 1년 내에 3가지를&nbsp;
+          <span className="mobile519block">자신있게 약속드립니다.</span> */}
         </h1>
       </header>
       <section className="main">
@@ -129,7 +130,7 @@ function ResumePage() {
                 </div>
                 <div className="profile_value">조하윤</div>
               </li>
-              <li className="bold flex">
+              {/* <li className="bold flex">
                 <div className="profile_key">
                   <span>생</span>
                   <span>년</span>
@@ -137,7 +138,7 @@ function ResumePage() {
                   <span>일</span>
                 </div>
                 <div className="profile_value">1993. 04. 09.</div>
-              </li>
+              </li> */}
               <li className="bold flex">
                 <div className="profile_key">
                   <span>전</span>
@@ -158,10 +159,9 @@ function ResumePage() {
               </li>
               <li className="bold flex column">
                 <div className="profile_key">
-                  <span>소</span>
-                  <span>개</span>
+                  <span>스</span>
+                  <span>킬</span>
                 </div>
-                {/* <div className="profile_value">lauren.choux@gmail.com</div> */}
                 <div className="introduce_wrap">
                   <ul className="box introduce">
                     <li className="txt bullet-flex">
@@ -172,14 +172,8 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>[개발 프로세스 숙지 및 개선 노력]</b>
-                        <span className="block padding-top-bottom3">
-                          귀사에 입사하여 1년 안에 매뉴얼을 빠르게 숙지하고 현
-                          개발 프로세스를 이해하겠습니다. 이를 바탕으로 효율성을
-                          높일 수 있는 작은 개선점들을 찾아 제안하겠습니다. 이를
-                          통해 팀의 일원으로서 기여할 수 있는 방법을 모색하고,
-                          궁극적으로는 개발 프로세스의 효율성을 점진적으로
-                          향상시키겠습니다.
+                        <span className="padding-top-bottom3">
+                          JavaScript, React, React-Router, React-Query
                         </span>
                       </span>
                     </li>
@@ -191,13 +185,8 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>[사용자 경험 개선 노력]</b>
-                        <span className="block padding-top-bottom3">
-                          귀사에 입사하여 사용자 경험을 분석하고, UI/UX 디자인
-                          원칙을 적극적으로 적용하겠습니다. 관련 서적과 학습
-                          자료를 통해 최신 트렌드와 모범 사례를 지속적으로
-                          학습하여, 사용자 친화적인 인터페이스를 제공하고 귀사의
-                          서비스 품질을 향상시키겠습니다.
+                        <span className="padding-top-bottom3">
+                          SCSS, styled-components, Bootstrap
                         </span>
                       </span>
                     </li>
@@ -209,13 +198,28 @@ function ResumePage() {
                         />
                       </span>
                       <span>
-                        <b>[협업 효율성 증대]</b>
-                        <span className="block padding-top-bottom3">
-                          귀사에 입사하여 협업 도구와 워크플로우를 빠르게
-                          익히고, 팀원들의 성향과 업무 스타일을 존중하는
-                          커뮤니케이션을 실천하겠습니다. 이를 통해 협업 효율성을
-                          높이고, 원활한 팀워크를 유지하는 데 기여하겠습니다.
+                        <span className="padding-top-bottom3">
+                          GitHub, Yarn, Vite
                         </span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li className="bold flex column">
+                <div className="profile_key">
+                  <span>소</span>
+                  <span>개</span>
+                </div>
+                {/* <div className="profile_value">lauren.choux@gmail.com</div> */}
+                <div className="introduce_wrap">
+                  <ul className="box introduce">
+                    <li className="txt bullet-flex">
+                      <span>
+                        저는 신입으로서 배우려는 자세와 적극적인 태도로 귀사의
+                        발전에 기여하고자 합니다. <br />
+                        기존 시스템과 선배들의 노하우를 존중하며, 새로운 도전을
+                        통해 지속적으로 성장해 나가겠습니다. 감사합니다.
                       </span>
                     </li>
                   </ul>
@@ -224,12 +228,12 @@ function ResumePage() {
             </ul>
           </article>
         </div>
-        <div className="padding-top-bottom3">
+        {/* <div className="padding-top-bottom3">
           저는 신입으로서 배우려는 자세와 적극적인 태도로 귀사의 발전에
           기여하고자 합니다. <br />
           기존 시스템과 선배들의 노하우를 존중하며, 새로운 도전을 통해
           지속적으로 성장해 나가겠습니다. 감사합니다.
-        </div>
+        </div> */}
 
         <div className="gray_hr mb_none"></div>
 
