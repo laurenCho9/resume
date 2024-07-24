@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 233, 109, 1);
+  background-color: #7841d3;
   article {
     height: 100%;
     display: flex;
@@ -25,19 +25,18 @@
       border: 2px solid #fff;
       border-radius: 10px;
       height: 50px;
-      background-color: rgba(255, 233, 109, 1);
-      color: #0f0f0f;
+      background-color: #511ca8;
+      color: #fff;
       font-weight: 700;
       cursor: pointer;
-      &:hover {
-        background-color: #fff;
-        transition: all ease-in-out 0.2s;
-      }
+      // &:hover {
+      //   background-color: #511ca8;
+      //   transition: all ease-in-out 0.2s;
+      // }
       a.block {
         display: flex;
         justify-content: center;
         align-items: center;
-        // background-color: red;
         height: 100%;
       }
     }
