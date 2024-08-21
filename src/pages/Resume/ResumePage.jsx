@@ -199,7 +199,7 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          GitHub, Yarn, Vite
+                          Figma, GitHub, Yarn, Vite
                         </span>
                       </span>
                     </li>
