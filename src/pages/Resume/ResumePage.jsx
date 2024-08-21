@@ -174,7 +174,7 @@ function ResumePage() {
                       <span>
                         <span className="padding-top-bottom3">
                           JavaScript, TypeScript, React, React-Router, Context
-                          API, React-Query
+                          API, Redux, React-Query
                         </span>
                       </span>
                     </li>
