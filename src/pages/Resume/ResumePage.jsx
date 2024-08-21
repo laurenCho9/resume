@@ -173,7 +173,8 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          JavaScript, React, React-Router, React-Query
+                          JavaScript, TypeScript, React, React-Router, Context
+                          API, React-Query
                         </span>
                       </span>
                     </li>
@@ -186,7 +187,8 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          SCSS, styled-components, Bootstrap
+                          SCSS, Css Module, Styled-Components,
+                          Bootstrap,Tailwind
                         </span>
                       </span>
                     </li>
@@ -199,7 +201,7 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          Figma, GitHub, Yarn, Vite
+                          Figma, GitHub, Yarn, Vite, Slack...
                         </span>
                       </span>
                     </li>
