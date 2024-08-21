@@ -1,73 +1,3 @@
-.profile ul.box li,
-.introduce_wrap ul.box li {
-  font-size: 1.6rem;
-}
-.profile ul.box .embed .link_wrap .txt,
-.profile ul.box .embed .link_wrap .address,
-.gallery .txt .title span,
-.gallery .txt .date,
-.gallery .txt .tag {
-  font-size: 1.2rem;
-}
-
-.profile_wrap,
-.bullet_list {
-  display: flex;
-}
-
-.inline_flex {
-  display: inline-flex;
-}
-
-.block {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-.title_hidden {
-  text-indent: -99999999px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.period,
-.toggle_list ul li .italic,
-.bullet_list ul li .italic,
-footer.italic {
-  font-style: italic;
-  color: #787774;
-}
-
-.bullet_list ul li,
-.font_grey {
-  color: #787774;
-}
-
-/* img */
-// .photo,
-// .link_img,
-// .thumbnail {
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
-
-.icon.github {
-  background-image: url("../../assets/icon_github.png");
-}
-
-.icon.velog {
-  background-image: url("../../assets/icon_velog.png");
-}
-
-.icon.gitbook {
-  background-image: url("../../assets/icon_gitbook.png");
-}
-
 /* layout - desktop */
 .content {
   width: 708px;
@@ -178,6 +108,11 @@ footer.italic {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+
+.profile ul.box .embed .link_wrap .title,
+.introduce .txt {
+  color: #3f3e39;
 }
 
 .address .icon {

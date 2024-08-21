@@ -111,7 +111,7 @@ function ResumePage() {
       <header className="header">
         <div className="emoji"></div>
         <h1 className="title">
-          신입 프론트엔드 개발자 조하윤입니다
+          에이전시 근무 경험이 있는 UI/UX 퍼블리셔, 프론트엔드 조하윤입니다
           {/* 입사 후 1년 내에 3가지를&nbsp;
           <span className="mobile519block">자신있게 약속드립니다.</span> */}
         </h1>

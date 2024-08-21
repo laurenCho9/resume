@@ -245,10 +245,7 @@ function PortfolioPage() {
             </div>
           </article>
           <hr className="project_hr" />
-          <footer className="italic">
-            {/* <b>Latest Updated</b> @{}년 {}월 {}일 */}
-            {/* <b>Latest Updated</b> @2024년 05월 29일 */}
-          </footer>
+          <footer className="italic"></footer>
         </div>
       </section>
     </div>
