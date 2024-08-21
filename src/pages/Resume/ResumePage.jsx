@@ -187,8 +187,8 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          SCSS, Css Module, Styled-Components,
-                          Bootstrap,Tailwind
+                          SCSS, Css Module, Styled-Components, Bootstrap,
+                          Tailwind
                         </span>
                       </span>
                     </li>
@@ -201,7 +201,7 @@ function ResumePage() {
                       </span>
                       <span>
                         <span className="padding-top-bottom3">
-                          Figma, GitHub, Yarn, Vite, Slack...
+                          Figma, GitHub, Yarn, Vite, Slack ...
                         </span>
                       </span>
                     </li>
@@ -218,8 +218,8 @@ function ResumePage() {
                   <ul className="box introduce">
                     <li className="txt bullet-flex">
                       <span>
-                        저는 신입으로서 배우려는 자세와 적극적인 태도로 귀사의
-                        발전에 기여하고자 합니다. <br />
+                        배우려는 자세와 적극적인 태도로 귀사의 발전에 기여하고자
+                        합니다. <br />
                         기존 시스템과 선배들의 노하우를 존중하며, 새로운 도전을
                         통해 지속적으로 성장해 나가겠습니다. 감사합니다.
                       </span>
