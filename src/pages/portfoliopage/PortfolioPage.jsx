@@ -4,8 +4,6 @@ import "./PortfolioPage.style.scss";
 
 function PortfolioPage() {
   let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
-  let [clickObj, setClickObj] = useState([]); // toggle click 여부에 따라 펼치고 접기 위한 Object를 담을 state
-  let [tabFocusCss, setTabFocusCss] = useState("All"); // 탭 focus css 적용시킬 state, 초기값은 All
 
   // useEffect를 활용하여 최초 렌더링(두 번째 인자값 [])이 되었을 때에만 data.json을 호출한다.
   // axios 통신으로 data.json 파일에 있는 데이터를 get 한다.
@@ -17,40 +15,9 @@ function PortfolioPage() {
     });
   }, []);
 
-  // profile 영역의 카드 클릭 시 해당 address의 새 창(새 탭)을 오픈한다.
-  const profileAreaClick = (profileAddress) => {
-    // profileAdress는 address 값이다.
-    window.open(profileAddress);
-  };
-
-  // 펼치고 접기 위한 toggle 클릭 시 넘겨주는 값을 toggleClickValue 매개 변수로 받아서 처리한다.
-  const toggleClick = (toggleClickValue) => {
-    // clickObj.length 가 0 즉 array 가 비어 있다면 toggleClickValue를 최초로 넣어 준다.
-    if (clickObj.length === 0) {
-      setClickObj([toggleClickValue]);
-    } else {
-      // clickObj 가 빈 [] 상태가 아니라면 includes 함수를 활용하여 내가 클릭한 toggleClickValue가 clickObj에 존재하는지 체크한다.
-      if (clickObj.includes(toggleClickValue) === false) {
-        // clickObj 안에 toggleClickValue가 존재하지 않는다는 건 접혀있는 상태라는 말이기 때문에 toggleClickValue를 넣어 준다.
-        setClickObj([toggleClickValue, ...clickObj]);
-      } else {
-        // clickObj 안에 toggleClickValue가 존재한다면 filter로 제거한다.
-        let filter = clickObj.filter((item) => {
-          // item 이 toggleClickValue와 다른 값들만 return 한다.
-          if (item !== toggleClickValue) {
-            return toggleClickValue;
-          }
-        });
-        // filter 된 값을 set함수를 이용하여 clickObj 값을 update 시킨다.
-        setClickObj(filter);
-      }
-    }
-  };
-
   return (
     <div className="content">
       <header className="header">
-        {/* <div className="emoji"></div> */}
         <h1 className="title">
           <span className="title_emoji">
             <img src="icon_emoji.png" alt="이모지" />
