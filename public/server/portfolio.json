@@ -1,18 +1,54 @@
 {
   "projects": [
     {
+      "title": "기업 연계 팀프로젝트 펄핏 (5인)",
+      "description": "AI를 이용한 신발사이즈 측정 및 추천 서비스입니다.",
+      "deploy": "https://11-supreme.vercel.app/",
+      "github": "https://github.com/Perfitt-11-supreme/11-supreme",
+      "thumbnail": "/assets/images/portfolio/thumbnail_perfitt.png",
+      "technologies": "Vite, TypeScript + SWC, Yarn Classic, React TypeScript, React Router, Vanilla Extract, Firebase",
+      "implement": "공통UI 컴포넌트화, 사이드메뉴UI, 마이페이지UI, 내정보 수정, 비밀번호 변경, 좋아요, 최근본 기능 구현"
+    },
+    {
+      "title": "이력서 팀프로젝트 (2인)",
+      "description": "노션 디자인을 참고한 이력서 프로젝트입니다.",
+      "deploy": "https://resume-team-project.vercel.app/",
+      "blog": "https://velog.io/@lauren/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1%EC%9D%BC%EC%B0%A8-%EA%B8%B0%EB%A1%9D",
+      "thumbnail": "/assets/images/portfolio/thumbnail_resume.png",
+      "technologies": "Create React App, Yarn Berry, React TypeScript, React Router, SCSS, Mock Data, Axios"
+    },
+    {
       "title": "영화 데이터 서비스 (1인)",
-      "link": "https://movies-chohayoon.netlify.app/",
-      "technologies": "React + SWC, Vite, Yarn, React-Router, React-Query, Bootstrap, SCSS",
-      "description": "카드 캐롯셀, 페이지네이션, 검색 기능 구현",
-      "thumbnail": "portfolio-images/thumbnail_movies.png"
+      "description": "평점, 장르, 인기 순위 등을 한눈에 볼 수 있는 서비스입니다.",
+      "deploy": "https://movies-chohayoon.netlify.app/",
+      "thumbnail": "/assets/images/portfolio/thumbnail_movies.png",
+      "technologies": "Vite, React + SWC, Yarn Berry, React Router, Tanstack Query(React Query), SCSS, Bootstrap",
+      "implement": "카드 캐롯셀, 페이지네이션, 검색 기능 구현"
     },
     {
       "title": "개발 동아리 모집 서비스 (6인)",
-      "link": "https://superclub.vercel.app/recruit",
-      "technologies": "React, Create-React-App, Npm, React-Router, styled-components",
-      "description": "모집공고 페이지 디자인, 개발 담당 슬라이드 배너, 탭메뉴, 필터링 기능 구현",
-      "thumbnail": "portfolio-images/thumbnail_coding.png"
+      "description": "프로젝트 협업 경험 및 스터디원을 모집할 수 있는 개발 커뮤니티 서비스입니다.",
+      "deploy": "https://superclub.vercel.app/recruit",
+      "github": "https://github.com/laurenCho9/superclub",
+      "thumbnail": "/assets/images/portfolio/thumbnail_coding.png",
+      "technologies": "Create React App, Npm, React, React Router, Styled-components",
+      "implement": "모집공고 페이지UI, 슬라이드 배너, 탭메뉴, 필터링 기능 구현"
+    },
+    {
+      "title": "감정일기장 (1인)",
+      "description": "매일 간단한 일상을 기록할 수 있는 감정일기장 서비스입니다.",
+      "deploy": "https://winter-react-project.web.app/",
+      "thumbnail": "/assets/images/portfolio/thumbnail_diary.png",
+      "technologies": "Vite, Yarn Berry, React + SWC, React Router, ContextAPI, CSS, Local Storage",
+      "implement": "탭메뉴, 수정하기, 삭제하기 기능 구현"
+    },
+    {
+      "title": "투두리스트 (1인)",
+      "description": "할일을 등록, 체크, 삭제할 수 있는 투두 서비스입니다.",
+      "deploy": "https://daily-to-doo.netlify.app/",
+      "thumbnail": "/assets/images/portfolio/thumbnail_todo.png",
+      "technologies": "Vite, Yarn Berry, React + SWC, React Router, ContextAPI, PostCSS, Local Storage",
+      "implement": "다크모드, 탭메뉴, 필터링, 삭제하기 기능 구현"
     }
   ]
 }
