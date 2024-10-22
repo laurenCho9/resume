@@ -5,54 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { FcPicture } from "react-icons/fc";
 import { icon_disc_dark, icon_toggle } from "../../assets/icons";
 import { profile_image } from "../../assets/images-profile";
-
-type Experience = {
-  title1: string;
-  title2: string;
-  date: string;
-  content1: string;
-  content2?: string;
-  content3?: string;
-  portfolio: string;
-  portfolioContent1: { id: string; name: string };
-  portfolioContent2: { id: string; name: string };
-  portfolioContent3?: string;
-  portfolioContent4?: string;
-  subTitle?: string;
-  projects: {
-    projectNO: number;
-    projectName: string;
-    projectContribution: string;
-    projectOutput: string;
-  }[];
-};
-
-type Education = {
-  title1: string;
-  tag: string[];
-  date: string;
-  content: string;
-};
-
-type Skill = {
-  title1: string;
-  content1?: string;
-  content2?: string;
-  content3?: string;
-  content4?: string;
-};
-
-type Institute = {
-  title1: string;
-  date: string;
-  content: string;
-};
+import {
+  TEducation,
+  TExperience,
+  TInstitute,
+  TSkill,
+} from "../../types/resume";
 
 type ResumeData = {
-  experience: Experience[];
-  education: Education[];
-  skill: Skill[];
-  institute: Institute[];
+  experience: TExperience[];
+  education: TEducation[];
+  skill: TSkill[];
+  institute: TInstitute[];
 };
 
 const ResumePage = () => {

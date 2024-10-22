@@ -3,44 +3,22 @@ import { useEffect, useState } from "react";
 import "./resume-detail-page.style.scss";
 import { FcPicture } from "react-icons/fc";
 import { useParams } from "react-router-dom";
+import { TProjectImage } from "../../../types/resume-detail";
 
-type ProjectDetail = {
-  name?: string;
-  contribution?: string;
-  subImage1?: string;
-  subImage2?: string;
-  subImage3?: string;
-  subImage4?: string;
-  subImage5?: string;
-  thumbnail?: string;
-  thumbnailImage?: string;
-  mockup?: string;
-  mockupPCImage?: string;
-  mockupMobileImage?: string;
-  description?: string;
-  descriptionImage?: string;
-};
-
-type ProjectImage = {
-  id: number;
-  title: string;
-  detail: ProjectDetail[];
-};
-
-type DataObj = {
-  projectImages: ProjectImage[];
+type ResumeDetailData = {
+  projectImages: TProjectImage[];
 };
 
 const ProjectImageDetailPage = () => {
   // id를 useParams로 가져오고, string | undefined로 설정
   const { id } = useParams<{ id: string | undefined }>();
-  const [dataObj, setDataObj] = useState<DataObj | null>(null); // 타입 적용
+  const [dataObj, setDataObj] = useState<ResumeDetailData | null>(null); // 타입 적용
 
   useEffect(() => {
     axios
       .get("/server/resume.json")
       .then((response) => {
-        const data: DataObj = response.data;
+        const data: ResumeDetailData = response.data;
         setDataObj(data); // data를 DataObj 타입으로 설정
       })
       .catch((error) => {
