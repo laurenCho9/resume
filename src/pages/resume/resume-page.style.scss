@@ -264,6 +264,13 @@ article.profile {
   flex-wrap: wrap;
   position: relative;
 }
+.toggle_list_in_skills ul li {
+  max-width: 100%;
+  padding: 3px 2px;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
 
 .toggle_list ul li div:nth-child(1),
 .toggle_list ul li ul li div:nth-child(1),

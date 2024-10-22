@@ -361,7 +361,6 @@ const ResumePage = () => {
                       >
                         {item.projects.map((projectItem, projectName) => (
                           <li key={projectName}>
-                            {/* <div> */}
                             <div className="width100 padding-top-bottom3">
                               <b>{projectItem.projectNO}&#41;&nbsp;</b>
                               <b>{projectItem.projectName}</b>
@@ -389,7 +388,6 @@ const ResumePage = () => {
                                   산출물 :&nbsp;
                                 </span>
                                 <a
-                                  // href={encodeURI(projectItem.projectOutput)}
                                   href={projectItem.projectOutput}
                                   target="_blank"
                                   className="color37352f"
@@ -398,7 +396,6 @@ const ResumePage = () => {
                                 </a>
                               </span>
                             </div>
-                            {/* </div> */}
                           </li>
                         ))}
                       </ul>
@@ -482,7 +479,7 @@ const ResumePage = () => {
           <article className="career">
             <h3 className="title">Skills</h3>
             <hr />
-            <div className="toggle_list font_grey">
+            <div className="toggle_list toggle_list_in_skills font_grey">
               {dataObj &&
                 dataObj.skill.map((item) => (
                   <div key={item.title1}>
