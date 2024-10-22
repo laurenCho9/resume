@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 330px 46px 330px;
+}
+
+.reversed {
+  grid-template-columns: 330px 46px 330px;
+  direction: rtl; // 레이아웃 뒤집기
+
+  .flex_gap {
+    direction: ltr; // 내부 콘텐츠는 다시 좌우 반전
+  }
+}

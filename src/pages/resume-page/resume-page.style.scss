@@ -36,8 +36,7 @@
 
 .period,
 .toggle_list ul li .italic,
-.bullet_list ul li .italic,
-footer.italic {
+.bullet_list ul li .italic {
   font-style: italic;
   color: #787774;
 }
@@ -59,18 +58,6 @@ footer.italic {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.icon.github {
-  background-image: url("../../assets/icon_github.png");
-}
-
-.icon.velog {
-  background-image: url("../../assets/icon_velog.png");
-}
-
-.icon.gitbook {
-  background-image: url("../../assets/icon_gitbook.png");
 }
 .width100 {
   width: 100%;
@@ -107,8 +94,8 @@ footer.italic {
 }
 
 .column_space {
-  // width: 24px;
-  width: 8rem;
+  // width: 8rem;
+  width: 6rem;
 }
 
 .main {
@@ -118,9 +105,7 @@ footer.italic {
 
 .photo {
   width: 207px;
-  // width: 450px;
   height: 276px;
-  background-image: url("../../assets/profile-image.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -234,7 +219,8 @@ footer.italic {
 }
 
 article.profile {
-  width: 415px;
+  // width: 415px;
+  width: 430px;
 }
 
 .career_wrap .career {
@@ -481,13 +467,6 @@ ul.depth2 {
   text-decoration: underline;
 }
 
-footer {
-  padding: 17px 2px;
-  display: flex;
-  justify-content: end;
-  padding-right: 22px;
-}
-
 /* layout - desktop - min-width: 768px ===============================================================
 ========================================================================================================= */
 @media (min-width: 768px) {
@@ -642,11 +621,6 @@ footer {
 
   .vertlcal_sub img {
     vertical-align: sub;
-  }
-
-  footer {
-    padding: 10px 2px;
-    padding-right: 10px;
   }
 
   article.profile {

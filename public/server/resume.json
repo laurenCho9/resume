@@ -1,37 +1,4 @@
 {
-  "profile": [
-    {
-      "headline": "📧 Email",
-      "address": "abc@gmail.com"
-    },
-    {
-      "headline": "🐱 GitHub",
-      "title": "baebae-dev - Overview",
-      "txt": "데이터 카탈로그는 사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
-      "icon": "icon gitHub",
-      "address": "https://naver.com"
-    },
-    {
-      "headline": "🐱 Velog",
-      "title": "bae - Overview",
-      "txt": "사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
-      "icon": "icon velog",
-      "address": "https://google.com"
-    },
-    {
-      "headline": "🐱 GitBook (AI)",
-      "title": "baebae-dev - Overview",
-      "txt": "데이터 카탈로그는 사용자가 필요한 정보를 빠르게 찾을 수 있도록 하는 회사의 데이터 자산 목록입니다. 카탈로그는 대부분 다른 데이터에 대한 기본 정보를 제공하고 그것이 무엇인지 설명하는 메타데이터입니다.",
-      "icon": "icon gitBook",
-      "address": "https://naver.com"
-    }
-  ],
-  "summary": [
-    {
-      "date": "2011.02 - 2021 현재",
-      "summaryContent": "React Project"
-    }
-  ],
   "experience": [
     {
       "title1": "넥스컨텔레컴(주)",
@@ -82,62 +49,6 @@
       ]
     }
   ],
-  "tabName": [
-    {
-      "name": "All"
-    },
-    {
-      "name": "Work"
-    },
-    {
-      "name": "Practice"
-    }
-  ],
-  "work": [
-    {
-      "icon": "😃",
-      "title": " (Kor)Project",
-      "link": "https://www.netlify.com/",
-      "date": "9999.12 - 2017.05",
-      "tag": "tag"
-    },
-    {
-      "icon": "✨",
-      "title": " 트위터",
-      "link": "https://www.daum.net/",
-      "date": "2016.12 - 2017.05",
-      "tag": "Work"
-    },
-    {
-      "icon": "📃",
-      "title": " 이력서 프로젝트",
-      "link": "https://www.nate.com/",
-      "date": "2016.12 - 2017.05",
-      "tag": "Work"
-    },
-    {
-      "icon": "📃",
-      "title": " 투두리스트",
-      "link": "https://www.google.com/",
-      "date": "2016.12 - 2017.05",
-      "tag": "Work"
-    }
-  ],
-  "tools": ["Figma", "Figma2"],
-  "awards": [
-    {
-      "title1": "awards title1",
-      "title2": "awards title2",
-      "date": ["2012.12 - 2023.21"],
-      "content": ["Kakao", "Kakao2"]
-    },
-    {
-      "title1": "awards title11",
-      "title2": "awards title22",
-      "date": ["2012.12 - 2023.21"],
-      "content": ["Kakao", "Kakao2"]
-    }
-  ],
   "education": [
     {
       "title1": "세종사이버대학교",
@@ -168,10 +79,16 @@
     },
     {
       "title1": "개발",
-      "content1": ["HTML"],
-      "content2": ["CSS, SCSS, Styled-components, Bootstrap"],
-      "content3": ["JavaScript"],
-      "content4": ["React"]
+      "content1": [
+        "HTML, CSS, SCSS, Styled-components, Bootstrap, Tailwind, Vanilla Extract"
+      ],
+      "content2": ["JavaScript, TypeScript"],
+      "content3": [
+        "React, React Router, Context API, Zustand, Tanstack Query(React Query)"
+      ],
+      "content4": [
+        "Firebase, Npm, Yarn Berry, Create React App, Vite, Netlify, Vercel, Axios, Fetch API"
+      ]
     },
     {
       "title1": "디자인",
@@ -179,8 +96,12 @@
       "content2": ["Figma"]
     }
   ],
-  "contact": [{}],
   "institute": [
+    {
+      "title1": "프론트엔드 프로젝트 캠프 : React 2기",
+      "date": ["2024.08-2024.09"],
+      "content": ["실제 기업과의 연계를 통한 팀프로젝트 과정"]
+    },
     {
       "title1": "슈퍼코딩 웹개발 취업 부트캠프",
       "date": ["2023.06-2023.10"],
@@ -203,28 +124,28 @@
       "detail": [
         {
           "name": "X배너 디자인",
-          "subImage1": "/project-images/editorial-xbanner/img01.jpeg",
-          "subImage2": "/project-images/editorial-xbanner/img02.jpeg",
-          "subImage3": "/project-images/editorial-xbanner/img03.jpeg"
+          "subImage1": "/assets/images/project/editorial-xbanner/img01.jpeg",
+          "subImage2": "/assets/images/project/editorial-xbanner/img02.jpeg",
+          "subImage3": "/assets/images/project/editorial-xbanner/img03.jpeg"
         },
         {
           "name": "현수막 디자인",
-          "subImage1": "/project-images/editorial-banner/img01.jpeg",
-          "subImage2": "/project-images/editorial-banner/img02.jpeg"
+          "subImage1": "/assets/images/project/editorial-banner/img01.jpeg",
+          "subImage2": "/assets/images/project/editorial-banner/img02.jpeg"
         },
         {
           "name": "전광판 디자인",
-          "subImage1": "/project-images/editorial-electronic_display_board/img01.png",
-          "subImage2": "/project-images/editorial-electronic_display_board/img02.jpeg",
-          "subImage3": "/project-images/editorial-electronic_display_board/img03.jpeg",
-          "subImage4": "/project-images/editorial-electronic_display_board/img04.jpeg",
-          "subImage5": "/project-images/editorial-electronic_display_board/img05.jpeg"
+          "subImage1": "/assets/images/project/editorial-electronic_display_board/img01.png",
+          "subImage2": "/assets/images/project/editorial-electronic_display_board/img02.jpeg",
+          "subImage3": "/assets/images/project/editorial-electronic_display_board/img03.jpeg",
+          "subImage4": "/assets/images/project/editorial-electronic_display_board/img04.jpeg",
+          "subImage5": "/assets/images/project/editorial-electronic_display_board/img05.jpeg"
         },
         {
           "name": "키오스크 디자인",
-          "subImage1": "/project-images/editorial-kiosk/img01.jpeg",
-          "subImage2": "/project-images/editorial-kiosk/img02.jpeg",
-          "subImage3": "/project-images/editorial-kiosk/img03.jpeg"
+          "subImage1": "/assets/images/project/editorial-kiosk/img01.jpeg",
+          "subImage2": "/assets/images/project/editorial-kiosk/img02.jpeg",
+          "subImage3": "/assets/images/project/editorial-kiosk/img03.jpeg"
         }
       ]
     },
@@ -234,16 +155,16 @@
       "detail": [
         {
           "name": "APP 디자인",
-          "subImage1": "/project-images/etc-app/img01.png",
-          "subImage2": "/project-images/etc-app/img02.png",
-          "subImage3": "/project-images/etc-app/img03.png",
-          "subImage4": "/project-images/etc-app/img04.png"
+          "subImage1": "/assets/images/project/etc-app/img01.png",
+          "subImage2": "/assets/images/project/etc-app/img02.png",
+          "subImage3": "/assets/images/project/etc-app/img03.png",
+          "subImage4": "/assets/images/project/etc-app/img04.png"
         },
         {
           "name": "Logo 디자인",
-          "subImage1": "/project-images/etc-logo/img01.png",
-          "subImage2": "/project-images/etc-logo/img02.png",
-          "subImage3": "/project-images/etc-logo/img03.png"
+          "subImage1": "/assets/images/project/etc-logo/img01.png",
+          "subImage2": "/assets/images/project/etc-logo/img02.png",
+          "subImage3": "/assets/images/project/etc-logo/img03.png"
         }
       ]
     },
@@ -255,56 +176,56 @@
           "name": "양프로마켓",
           "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/cafe24-yangpro/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/cafe24-yangpro/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/cafe24-yangpro/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/cafe24-yangpro/description.jpg"
+          "thumbnailImage": "/assets/images/project/cafe24-yangpro/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/cafe24-yangpro/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/cafe24-yangpro/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/cafe24-yangpro/description.jpg"
         },
         {
           "name": "값진푸드",
           "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/cafe24-gapjinfood/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/cafe24-gapjinfood/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/cafe24-gapjinfood/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/cafe24-gapjinfood/description.jpg"
+          "thumbnailImage": "/assets/images/project/cafe24-gapjinfood/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/cafe24-gapjinfood/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/cafe24-gapjinfood/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/cafe24-gapjinfood/description.jpg"
         },
         {
           "name": "엘케이마켓",
           "contribution": "기여도 70% : 디자인20% & 퍼블리싱50% (로고는 전달받은 것에서 컬러만 디벨롭)",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/cafe24-lkmarket/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/cafe24-lkmarket/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/cafe24-lkmarket/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/cafe24-lkmarket/description.jpg"
+          "thumbnailImage": "/assets/images/project/cafe24-lkmarket/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/cafe24-lkmarket/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/cafe24-lkmarket/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/cafe24-lkmarket/description.jpg"
         },
         {
           "name": "비아와치",
           "contribution": "기여도 25% : 퍼블리싱 및 로고 제작",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/cafe24-viawatch/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/cafe24-viawatch/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/cafe24-viawatch/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/cafe24-viawatch/description.jpg"
+          "thumbnailImage": "/assets/images/project/cafe24-viawatch/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/cafe24-viawatch/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/cafe24-viawatch/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/cafe24-viawatch/description.jpg"
         },
         {
           "name": "논스톱캐노피",
           "contribution": "기여도 50% : 퍼블리싱 (로고 제외)",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/cafe24-nonstop/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/cafe24-nonstop/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/cafe24-nonstop/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/cafe24-nonstop/description.jpg"
+          "thumbnailImage": "/assets/images/project/cafe24-nonstop/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/cafe24-nonstop/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/cafe24-nonstop/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/cafe24-nonstop/description.jpg"
         }
       ]
     },
@@ -316,23 +237,23 @@
           "name": "모두의 쉐푸",
           "contribution": "기여도 100% : 디자인&퍼블리싱 (로고 제외)",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/wordpress-chef/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/wordpress-chef/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/wordpress-chef/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/wordpress-chef/description.jpg"
+          "thumbnailImage": "/assets/images/project/wordpress-chef/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/wordpress-chef/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/wordpress-chef/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/wordpress-chef/description.jpg"
         },
         {
           "name": "해명산업개발",
           "contribution": "기여도 100% : 디자인&퍼블리싱 및 로고 제작",
           "thumbnail": "메인페이지(썸네일)",
-          "thumbnailImage": "/project-images/wordpress-haemyung/thumbnail.jpg",
           "mockup": "반응형(목업)",
-          "mockupPCImage": "/project-images/wordpress-haemyung/mockup-pc.jpg",
-          "mockupMobileImage": "/project-images/wordpress-haemyung/mockup-mobile.jpg",
           "description": "하단의 기획안은 넛지커뮤니케이션즈 자체 디자인 양식에 맞춰 제작하였습니다.",
-          "descriptionImage": "/project-images/wordpress-haemyung/description.jpg"
+          "thumbnailImage": "/assets/images/project/wordpress-haemyung/thumbnail.jpg",
+          "mockupPCImage": "/assets/images/project/wordpress-haemyung/mockup-pc.jpg",
+          "mockupMobileImage": "/assets/images/project/wordpress-haemyung/mockup-mobile.jpg",
+          "descriptionImage": "/assets/images/project/wordpress-haemyung/description.jpg"
         }
       ]
     }

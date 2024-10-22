@@ -1,31 +1,60 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./ProjectImageDetailPage.style.scss";
+import { useEffect, useState } from "react";
+import "./resume-detail-page.style.scss";
 import { FcPicture } from "react-icons/fc";
 import { useParams } from "react-router-dom";
 
-function ProjectImageDetailPage() {
-  const { id } = useParams();
-  let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
+type ProjectDetail = {
+  name?: string;
+  contribution?: string;
+  subImage1?: string;
+  subImage2?: string;
+  subImage3?: string;
+  subImage4?: string;
+  subImage5?: string;
+  thumbnail?: string;
+  thumbnailImage?: string;
+  mockup?: string;
+  mockupPCImage?: string;
+  mockupMobileImage?: string;
+  description?: string;
+  descriptionImage?: string;
+};
+
+type ProjectImage = {
+  id: number;
+  title: string;
+  detail: ProjectDetail[];
+};
+
+type DataObj = {
+  projectImages: ProjectImage[];
+};
+
+const ProjectImageDetailPage = () => {
+  // id를 useParams로 가져오고, string | undefined로 설정
+  const { id } = useParams<{ id: string | undefined }>();
+  const [dataObj, setDataObj] = useState<DataObj | null>(null); // 타입 적용
 
   useEffect(() => {
     axios
-      .get("/data.json")
-      .then(function (response) {
-        // 성공 핸들링
-        // response는 data.json 안에 json 형식으로 되어 있는 모든 데이터를 뜻한다.
-        const data = response.data;
-        setDataObj(data); // set함수를 활용하여 dataObj 변수에 object 형식의 데이터를 대입한다.
+      .get("/server/resume.json")
+      .then((response) => {
+        const data: DataObj = response.data;
+        setDataObj(data); // data를 DataObj 타입으로 설정
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
   if (!dataObj) {
     return <div>Loading...</div>;
   }
+
+  // id가 있는 경우에만 find 실행
   const projectImage = dataObj.projectImages.find(
-    (item) => item.id === parseInt(id)
+    (item) => item.id === Number(id) // id가 undefined가 아닌 경우 Number로 변환
   );
 
   return (
@@ -38,8 +67,8 @@ function ProjectImageDetailPage() {
               <span>{projectImage.title}</span>
             </h1>
 
-            {projectImage.detail.map((detailItem, name) => (
-              <div key={name}>
+            {projectImage.detail.map((detailItem, index) => (
+              <div key={index}>
                 {detailItem.name && (
                   <h3 className="margintop24bottom6">{detailItem.name}</h3>
                 )}
@@ -109,14 +138,14 @@ function ProjectImageDetailPage() {
                     <div className="flex gap2">
                       {detailItem.mockupPCImage && (
                         <img
-                          className="width50  project-image"
+                          className="width50 project-image"
                           src={detailItem.mockupPCImage}
                           alt="project images"
                         />
                       )}
                       {detailItem.mockupMobileImage && (
                         <img
-                          className="width50  project-image"
+                          className="width50 project-image"
                           src={detailItem.mockupMobileImage}
                           alt="project images"
                         />
@@ -150,6 +179,6 @@ function ProjectImageDetailPage() {
       </div>
     </div>
   );
-}
+};
 
 export default ProjectImageDetailPage;

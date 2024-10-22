@@ -1,0 +1,18 @@
+{
+  "projects": [
+    {
+      "title": "영화 데이터 서비스 (1인)",
+      "link": "https://movies-chohayoon.netlify.app/",
+      "technologies": "React + SWC, Vite, Yarn, React-Router, React-Query, Bootstrap, SCSS",
+      "description": "카드 캐롯셀, 페이지네이션, 검색 기능 구현",
+      "thumbnail": "portfolio-images/thumbnail_movies.png"
+    },
+    {
+      "title": "개발 동아리 모집 서비스 (6인)",
+      "link": "https://superclub.vercel.app/recruit",
+      "technologies": "React, Create-React-App, Npm, React-Router, styled-components",
+      "description": "모집공고 페이지 디자인, 개발 담당 슬라이드 배너, 탭메뉴, 필터링 기능 구현",
+      "thumbnail": "portfolio-images/thumbnail_coding.png"
+    }
+  ]
+}

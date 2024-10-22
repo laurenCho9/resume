@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import "./Homepage.style.scss";
+import "./home-page.style.scss";
+import { profile_emoji } from "../../assets/images-profile";
 
-function Homepage() {
+const HomePage = () => {
   const navigateResume = useNavigate();
   const navigatePortfolio = useNavigate();
   const navigateToResume = () => {
@@ -14,7 +15,10 @@ function Homepage() {
   return (
     <div className="container">
       <article>
-        <div className="id-photo-box"></div>
+        <div
+          className="id-photo-box"
+          style={{ backgroundImage: `url(${profile_emoji})` }}
+        ></div>
         <button onClick={navigateToResume}>이력서</button>
         <button onClick={navigateToPortfolio}>포트폴리오</button>
         <button>
@@ -38,6 +42,6 @@ function Homepage() {
       </article>
     </div>
   );
-}
+};
 
-export default Homepage;
+export default HomePage;

@@ -14,7 +14,6 @@
       height: 186px;
       border: 2px solid #fff;
       border-radius: 50%;
-      background-image: url("../../assets/profile-image.png");
       background-color: #fff;
       background-repeat: no-repeat;
       background-size: cover;
@@ -29,10 +28,6 @@
       color: #fff;
       font-weight: 700;
       cursor: pointer;
-      // &:hover {
-      //   background-color: #511ca8;
-      //   transition: all ease-in-out 0.2s;
-      // }
       a.block {
         display: flex;
         justify-content: center;

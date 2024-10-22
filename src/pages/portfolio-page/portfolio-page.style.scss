@@ -30,13 +30,35 @@
   height: 24px;
 }
 
-.column_space {
-  width: 8rem;
-}
-
 .main {
   line-height: 1.5;
   position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 330px 46px 330px;
+}
+
+.width330 {
+  img {
+    width: 330px;
+  }
+}
+
+.width16 {
+  width: 16px;
+}
+
+.gap4 {
+  gap: 4px;
+}
+
+.pd_top24 {
+  margin-top: 24px;
+}
+.project_hr {
+  border: 0.5px solid rgba(55, 53, 47, 0.16);
 }
 
 .flex {
@@ -60,6 +82,12 @@
 .flex.column {
   flex-direction: column;
   align-items: flex-start;
+}
+
+.flex_gap {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .profile ul.box .embed {

@@ -1,109 +1,123 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "./ResumePage.style.scss";
-import { FcPicture } from "react-icons/fc";
+import "./resume-page.style.scss";
 import { useNavigate } from "react-router-dom";
+import { FcPicture } from "react-icons/fc";
+import { icon_disc_dark, icon_toggle } from "../../assets/icons";
+import { profile_image } from "../../assets/images-profile";
 
-function ResumePage() {
-  let [dataObj, setDataObj] = useState(null); // 모든 data를 담을 state
-  let [clickObj, setClickObj] = useState([]); // toggle click 여부에 따라 펼치고 접기 위한 Object를 담을 state
-  let [tabFocusCss, setTabFocusCss] = useState("All"); // 탭 focus css 적용시킬 state, 초기값은 All
-  let [rotationState, setRotationState] = useState({});
+type Experience = {
+  title1: string;
+  title2: string;
+  date: string;
+  content1: string;
+  content2?: string;
+  content3?: string;
+  portfolio: string;
+  portfolioContent1: { id: string; name: string };
+  portfolioContent2: { id: string; name: string };
+  portfolioContent3?: string;
+  portfolioContent4?: string;
+  subTitle?: string;
+  projects: {
+    projectNO: number;
+    projectName: string;
+    projectContribution: string;
+    projectOutput: string;
+  }[];
+};
 
-  // useEffect를 활용하여 최초 렌더링(두 번째 인자값 [])이 되었을 때에만 data.json을 호출한다.
-  // axios 통신으로 data.json 파일에 있는 데이터를 get 한다.
+type Education = {
+  title1: string;
+  tag: string[];
+  date: string;
+  content: string;
+};
+
+type Skill = {
+  title1: string;
+  content1?: string;
+  content2?: string;
+  content3?: string;
+  content4?: string;
+};
+
+type Institute = {
+  title1: string;
+  date: string;
+  content: string;
+};
+
+type ResumeData = {
+  experience: Experience[];
+  education: Education[];
+  skill: Skill[];
+  institute: Institute[];
+};
+
+const ResumePage = () => {
+  // 모든 data를 담을 state, 타입 정의 추가
+  const [dataObj, setDataObj] = useState<ResumeData | null>(null);
+  const [clickObj, setClickObj] = useState<string[]>([]);
+  const [rotationState, setRotationState] = useState<Record<string, boolean>>(
+    {}
+  );
+
+  // 데이터 호출
   useEffect(() => {
-    axios.get("data.json").then(function (response) {
-      // 성공 핸들링
-      // response는 data.json 안에 json 형식으로 되어 있는 모든 데이터를 뜻한다.
-      const data = response.data;
-      setDataObj(data); // set함수를 활용하여 dataObj 변수에 object 형식의 데이터를 대입한다.
+    axios.get("/server/resume.json").then(function (response) {
+      const data: ResumeData = response.data;
+      setDataObj(data);
 
-      // 모든 title1, subTitle, skill, institute 값을 초기값으로 설정
+      // 초기 상태 설정
       const initialClickObj = [
         ...data.experience.flatMap((item) => [item.title1, item.subTitle]),
-        ...data.education.flatMap((item) => [item.title1, item.subTitle]),
-        ...data.skill.flatMap((item) => [item.title1, item.subTitle]),
-        ...data.institute.flatMap((item) => [item.title1, item.subTitle]),
+        ...data.education.flatMap((item) => [item.title1]),
+        ...data.skill.flatMap((item) => [item.title1]),
+        ...data.institute.flatMap((item) => [item.title1]),
       ];
 
       const initialRotationState = {
         ...data.experience.reduce((acc, item) => {
           acc[item.title1] = true;
-          acc[item.subTitle] = true;
+          acc[item.subTitle ?? ""] = true;
           return acc;
-        }, {}),
+        }, {} as Record<string, boolean>),
         ...data.education.reduce((acc, item) => {
           acc[item.title1] = true;
-          acc[item.subTitle] = true;
           return acc;
-        }, {}),
+        }, {} as Record<string, boolean>),
         ...data.skill.reduce((acc, item) => {
           acc[item.title1] = true;
-          acc[item.subTitle] = true;
           return acc;
-        }, {}),
+        }, {} as Record<string, boolean>),
         ...data.institute.reduce((acc, item) => {
           acc[item.title1] = true;
-          acc[item.subTitle] = true;
           return acc;
-        }, {}),
+        }, {} as Record<string, boolean>),
       };
 
-      setClickObj(initialClickObj);
+      setClickObj(initialClickObj.filter(Boolean) as string[]);
       setRotationState(initialRotationState);
     });
   }, []);
 
-  // profile 영역의 카드 클릭 시 해당 address의 새 창(새 탭)을 오픈한다.
-  const profileAreaClick = (profileAddress) => {
-    // profileAdress는 address 값이다.
-    window.open(profileAddress);
+  const navigate = useNavigate();
+
+  const navigateToPortfolio = (id: string) => {
+    navigate(`/projectImage/${id}`);
   };
 
-  // 펼치고 접기 위한 toggle 클릭 시 넘겨주는 값을 toggleClickValue 매개 변수로 받아서 처리한다.
-  const toggleClick = (toggleClickValue) => {
-    // clickObj.length 가 0 즉 array 가 비어 있다면 toggleClickValue를 최초로 넣어 준다.
-    if (clickObj.length === 0) {
-      setClickObj([toggleClickValue]);
-    } else {
-      // clickObj 가 빈 [] 상태가 아니라면 includes 함수를 활용하여 내가 클릭한 toggleClickValue가 clickObj에 존재하는지 체크한다.
-      if (clickObj.includes(toggleClickValue) === false) {
-        // clickObj 안에 toggleClickValue가 존재하지 않는다는 건 접혀있는 상태라는 말이기 때문에 toggleClickValue를 넣어 준다.
-        setClickObj([toggleClickValue, ...clickObj]);
-      } else {
-        // clickObj 안에 toggleClickValue가 존재한다면 filter로 제거한다.
-        let filter = clickObj.filter((item) => {
-          // item 이 toggleClickValue와 다른 값들만 return 한다.
-          if (item !== toggleClickValue) {
-            return toggleClickValue;
-          }
-        });
-        // filter 된 값을 set함수를 이용하여 clickObj 값을 update 시킨다.
-        setClickObj(filter);
-      }
-    }
-  };
-
-  const toggleClickRotate = (toggleClickValue) => {
-    // Toggle the click state
-    if (clickObj.includes(toggleClickValue)) {
-      setClickObj(clickObj.filter((item) => item !== toggleClickValue));
-    } else {
-      setClickObj([...clickObj, toggleClickValue]);
-    }
-
-    // Update the rotation state
+  const toggleClickRotate = (toggleClickValue: string) => {
+    setClickObj((prev) =>
+      prev.includes(toggleClickValue)
+        ? prev.filter((item) => item !== toggleClickValue)
+        : [...prev, toggleClickValue]
+    );
     setRotationState((prev) => ({
       ...prev,
       [toggleClickValue]: !prev[toggleClickValue],
     }));
-  };
-
-  const navigate = useNavigate();
-
-  const navigateToPortfolio = (id) => {
-    navigate(`/projectImage/${id}`);
   };
 
   return (
@@ -112,14 +126,15 @@ function ResumePage() {
         <div className="emoji"></div>
         <h1 className="title">
           에이전시 근무 경험이 있는 UI/UX 퍼블리셔, 프론트엔드 조하윤입니다
-          {/* 입사 후 1년 내에 3가지를&nbsp;
-          <span className="mobile519block">자신있게 약속드립니다.</span> */}
         </h1>
       </header>
       <section className="main">
         <h3 className="title">About Me</h3>
         <div className="profile_wrap">
-          <div className="photo"></div>
+          <div
+            className="photo"
+            style={{ backgroundImage: `url(${profile_image})` }}
+          ></div>
           <div className="column_space"></div>
           <article className="profile">
             <ul className="box">
@@ -130,15 +145,6 @@ function ResumePage() {
                 </div>
                 <div className="profile_value">조하윤</div>
               </li>
-              {/* <li className="bold flex">
-                <div className="profile_key">
-                  <span>생</span>
-                  <span>년</span>
-                  <span>월</span>
-                  <span>일</span>
-                </div>
-                <div className="profile_value">1993. 04. 09.</div>
-              </li> */}
               <li className="bold flex">
                 <div className="profile_key">
                   <span>전</span>
@@ -166,42 +172,37 @@ function ResumePage() {
                   <ul className="box introduce">
                     <li className="txt bullet-flex">
                       <span className="inline_flex">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                       </span>
                       <span>
+                        {/* 스킬 1 */}
                         <span className="padding-top-bottom3">
-                          JavaScript, TypeScript, React, React-Router, Context
-                          API, Redux, React-Query
+                          JavaScript, TypeScript, React, Context API, Zustand,
+                          Tanstack Query(React Query)
                         </span>
                       </span>
                     </li>
                     <li className="txt bullet-flex">
                       <span className="inline_flex">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                       </span>
                       <span>
+                        {/* 스킬 2 */}
                         <span className="padding-top-bottom3">
-                          SCSS, Css Module, Styled-Components, Bootstrap,
-                          Tailwind
+                          HTML, CSS, SCSS, Styled-components, Bootstrap,
+                          Tailwind, Vanilla Extract
                         </span>
                       </span>
                     </li>
                     <li className="txt bullet-flex">
                       <span className="inline_flex">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                       </span>
                       <span>
+                        {/* 스킬 3 */}
                         <span className="padding-top-bottom3">
-                          Figma, GitHub, Yarn, Vite, Slack ...
+                          Firebase, Npm, Yarn Berry, Create React App, Vite,
+                          Netlify, Vercel, Axios, Fetch API, PhotoShop, Figma
                         </span>
                       </span>
                     </li>
@@ -213,15 +214,14 @@ function ResumePage() {
                   <span>소</span>
                   <span>개</span>
                 </div>
-                {/* <div className="profile_value">lauren.choux@gmail.com</div> */}
                 <div className="introduce_wrap">
                   <ul className="box introduce">
                     <li className="txt bullet-flex">
                       <span>
                         배우려는 자세와 적극적인 태도로 귀사의 발전에 기여하고자
                         합니다. <br />
-                        기존 시스템과 선배들의 노하우를 존중하며, 새로운 도전을
-                        통해 지속적으로 성장해 나가겠습니다. 감사합니다.
+                        기존 시스템과 선배들의 노하우를 존중하며, <br />
+                        새로운 도전을 통해 지속적으로 성장해 나가겠습니다.
                       </span>
                     </li>
                   </ul>
@@ -230,16 +230,8 @@ function ResumePage() {
             </ul>
           </article>
         </div>
-        {/* <div className="padding-top-bottom3">
-          저는 신입으로서 배우려는 자세와 적극적인 태도로 귀사의 발전에
-          기여하고자 합니다. <br />
-          기존 시스템과 선배들의 노하우를 존중하며, 새로운 도전을 통해
-          지속적으로 성장해 나가겠습니다. 감사합니다.
-        </div> */}
 
         <div className="gray_hr mb_none"></div>
-
-        {/* <div className="row_space"></div> */}
 
         <h2 className="title_hidden">경력 사항</h2>
         <div className="career_wrap">
@@ -260,7 +252,7 @@ function ResumePage() {
                         >
                           <img
                             className="toggle"
-                            src="icon_toggle.svg"
+                            src={icon_toggle}
                             style={{
                               transform: rotationState[item.title1]
                                 ? "rotate(90deg)"
@@ -293,17 +285,14 @@ function ResumePage() {
                         {item.date}
                       </div>
                       <div className="padding-left23 color37352f padding-top-bottom3 bullet-flex">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                         {item.content1}
                       </div>
                       {item.content2 && (
                         <div className="padding-left23 color37352f padding-top-bottom3 bullet-flex">
                           <img
                             className="disc icon_dark"
-                            src="icon_disc_dark.svg"
+                            src={icon_disc_dark}
                           />
                           {item.content2}
                         </div>
@@ -312,7 +301,7 @@ function ResumePage() {
                         <div className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
-                            src="icon_disc_dark.svg"
+                            src={icon_disc_dark}
                           />
                           <a
                             href="https://nudgecomms.com/sub02/project/"
@@ -324,10 +313,7 @@ function ResumePage() {
                         </div>
                       )}
                       <div className="padding-left23 color37352f padding-top-bottom3">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                         <b>{item.portfolio}</b>
                       </div>
 
@@ -375,12 +361,13 @@ function ResumePage() {
                         </div>
                       )}
 
-                      {/* <div className="gray_hr mb_none"></div> */}
                       {item.subTitle && (
                         <li className="padding-left23">
                           <span
                             className="inline_flex"
-                            onClick={() => toggleClickRotate(item.subTitle)}
+                            onClick={() =>
+                              item.subTitle && toggleClickRotate(item.subTitle)
+                            }
                           >
                             <img
                               style={{
@@ -389,7 +376,7 @@ function ResumePage() {
                                   : "rotate(0deg)",
                               }}
                               className="toggle"
-                              src="icon_toggle.svg"
+                              src={icon_toggle}
                             />
                           </span>
                           <div>
@@ -419,7 +406,7 @@ function ResumePage() {
                               <span>
                                 <img
                                   className="disc icon_dark"
-                                  src="icon_disc_dark.svg"
+                                  src={icon_disc_dark}
                                 />
                               </span>
                               <span className="color37352f">
@@ -430,7 +417,7 @@ function ResumePage() {
                               <span>
                                 <img
                                   className="disc icon_dark"
-                                  src="icon_disc_dark.svg"
+                                  src={icon_disc_dark}
                                 />
                               </span>
                               <span>
@@ -488,7 +475,7 @@ function ResumePage() {
                         >
                           <img
                             className="toggle"
-                            src="icon_toggle.svg"
+                            src={icon_toggle}
                             style={{
                               transform: rotationState[item.title1]
                                 ? "rotate(90deg)"
@@ -516,10 +503,7 @@ function ResumePage() {
                         {item.date}
                       </div>
                       <div className="padding-left23 color37352f padding-top-bottom3">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                         {item.content}
                       </div>
                     </ul>
@@ -546,7 +530,7 @@ function ResumePage() {
                         >
                           <img
                             className="toggle"
-                            src="icon_toggle.svg"
+                            src={icon_toggle}
                             style={{
                               transform: rotationState[item.title1]
                                 ? "rotate(90deg)"
@@ -570,7 +554,7 @@ function ResumePage() {
                         <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
-                            src="icon_disc_dark.svg"
+                            src={icon_disc_dark}
                           />
                           {item.content1}
                         </li>
@@ -580,7 +564,7 @@ function ResumePage() {
                           <span className="bullet-flex">
                             <img
                               className="disc icon_dark"
-                              src="icon_disc_dark.svg"
+                              src={icon_disc_dark}
                             />
                           </span>
                           {item.content2}
@@ -590,7 +574,7 @@ function ResumePage() {
                         <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
-                            src="icon_disc_dark.svg"
+                            src={icon_disc_dark}
                           />
                           {item.content3}
                         </li>
@@ -599,7 +583,7 @@ function ResumePage() {
                         <li className="padding-left23 color37352f padding-top-bottom3">
                           <img
                             className="disc icon_dark"
-                            src="icon_disc_dark.svg"
+                            src={icon_disc_dark}
                           />
                           {item.content4}
                         </li>
@@ -628,7 +612,7 @@ function ResumePage() {
                         >
                           <img
                             className="toggle"
-                            src="icon_toggle.svg"
+                            src={icon_toggle}
                             style={{
                               transform: rotationState[item.title1]
                                 ? "rotate(90deg)"
@@ -637,8 +621,8 @@ function ResumePage() {
                           />
                         </span>
                         <span className="profile_key">
-                          <span>졸</span>
-                          <span>업</span>
+                          <span>수</span>
+                          <span>료</span>
                         </span>
                         <div>
                           <b>{item.title1}</b>
@@ -656,10 +640,7 @@ function ResumePage() {
                         {item.date}
                       </div>
                       <div className="padding-left23 color37352f bullet-flex padding-top-bottom3">
-                        <img
-                          className="disc icon_dark"
-                          src="icon_disc_dark.svg"
-                        />
+                        <img className="disc icon_dark" src={icon_disc_dark} />
                         {item.content}
                       </div>
                     </ul>
@@ -669,13 +650,10 @@ function ResumePage() {
             </div>
           </article>
           <hr />
-          {/* <footer className="italic">
-            <b>Latest Updated</b> @{}년 {}월 {}일
-          </footer> */}
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default ResumePage;
