@@ -1,0 +1,37 @@
+.grid {
+  display: grid;
+  grid-template-columns: 330px 46px 330px;
+}
+
+.reversed {
+  grid-template-columns: 330px 46px 330px;
+  direction: rtl; // 레이아웃 뒤집기
+
+  .flex_gap {
+    direction: ltr; // 내부 콘텐츠는 다시 좌우 반전
+  }
+}
+
+.description {
+  font-size: 1.5rem;
+}
+
+.deploy_link {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  row-gap: 8px;
+  column-gap: 8px;
+}
+
+/* layout - mobile - max-width: 767px */
+@media (max-width: 767px) {
+  .projects_wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .column_space,
+  .thumbnail_project {
+    display: none;
+  }
+}
