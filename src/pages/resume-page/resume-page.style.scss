@@ -108,6 +108,7 @@
   height: 276px;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 16px;
 }
 
 .flex {
@@ -517,12 +518,15 @@ ul.depth2 {
 
   .photo {
     width: 100%;
-    max-width: 366px;
+    // max-width: 366px;
     // height: 488px;
-    height: 334px;
+    max-width: 206px;
+    height: 278px;
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    margin: 0 auto;
+    border-radius: 16px;
   }
 
   .introduce_wrap ul.box.introduce {
