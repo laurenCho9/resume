@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../pages/home/HomePage";
-import ResumePage from "../pages/resume/ResumePage";
-import ProjectImageDetailPage from "../pages/resume/resume-detail/resumeDetailPage";
-import PortfolioPage from "../pages/portfolio/PortfolioPage";
+import HomePage from "../pages/home-page/HomePage";
+import ResumePage from "../pages/resume-page/ResumePage";
+import ProjectImageDetailPage from "../pages/resume-page/resume-detail-page/resumeDetailPage";
+import PortfolioPage from "../pages/portfolio-page/PortfolioPage";
 
 const App = () => {
   return (
