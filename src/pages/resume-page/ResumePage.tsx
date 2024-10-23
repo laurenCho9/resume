@@ -87,7 +87,6 @@ const ResumePage = () => {
   return (
     <div className="content">
       <header className="header">
-        <div className="emoji"></div>
         <h1 className="title">
           에이전시 근무 경험이 있는 UI/UX 퍼블리셔, 프론트엔드 조하윤입니다
         </h1>

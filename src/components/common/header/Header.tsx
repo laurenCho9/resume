@@ -10,19 +10,23 @@ const Header = () => {
   };
 
   return (
-    <header className="header-container">
-      <div className="header-box">
-        <img
-          className="header-icon"
-          src={back_arrow}
-          alt="back_arrow"
-          onClick={handleNavigate}
-          width="24px"
-          height="24px"
-        />
-        <div className="header-title"></div>
-      </div>
-    </header>
+    <>
+      <div className="header-spacer" />
+
+      <header className="header-container">
+        <div className="header-box">
+          <img
+            className="header-icon"
+            src={back_arrow}
+            alt="back_arrow"
+            onClick={handleNavigate}
+            width="24px"
+            height="24px"
+          />
+          <div className="header-title"></div>
+        </div>
+      </header>
+    </>
   );
 };
 
