@@ -19,8 +19,8 @@ const HomePage = () => {
           className="id-photo-box"
           style={{ backgroundImage: `url(${profile_emoji})` }}
         ></div>
-        <button onClick={navigateToResume}>이력서</button>
         <button onClick={navigateToPortfolio}>포트폴리오</button>
+        <button onClick={navigateToResume}>이력서</button>
         <button>
           <a
             className="block"

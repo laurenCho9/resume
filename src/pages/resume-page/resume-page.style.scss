@@ -497,7 +497,6 @@ ul.depth2 {
     flex-wrap: inherit;
   }
 
-  /* layout - desktop */
   .content {
     width: 100%;
     margin: 24px auto 60px;
@@ -506,14 +505,12 @@ ul.depth2 {
 
   .photo {
     width: 100%;
-    // max-width: 366px;
-    // height: 488px;
     max-width: 206px;
     height: 278px;
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
-    margin: 0 auto;
+    margin: 0 auto 24px;
     border-radius: 16px;
   }
 
