@@ -275,50 +275,43 @@ const ResumePage = () => {
                           </a>
                         </div>
                       )}
-                      <div className="padding-left23 color37352f padding-top-bottom3">
-                        <img className="disc icon_dark" src={icon_disc_dark} />
-                        <b>{item.portfolio}</b>
-                      </div>
+                      {item.portfolio && (
+                        <div className="padding-left23 color37352f padding-top-bottom3">
+                          <img
+                            className="disc icon_dark"
+                            src={icon_disc_dark}
+                          />
+                          <b>{item.portfolio}</b>
+                        </div>
+                      )}
 
                       {/* portfolio contents */}
-                      <div
-                        className="padding-left46 color37352f padding-top-bottom3 flex click"
-                        onClick={() =>
-                          navigateToPortfolio(item.portfolioContent1.id)
-                        }
-                      >
-                        <FcPicture className="image_icon" />
-                        <span className="bold600">
-                          {item.portfolioContent1.name}
-                          <b> ↗︎</b>
-                        </span>
-                      </div>
-                      <div
-                        className="padding-left46 color37352f padding-top-bottom3 flex click"
-                        onClick={() =>
-                          navigateToPortfolio(item.portfolioContent2.id)
-                        }
-                      >
-                        <FcPicture className="image_icon" />
-                        <span className="bold600">
-                          {item.portfolioContent2.name}
-                          <b> ↗︎</b>
-                        </span>
-                      </div>
-                      {item.portfolioContent3 && (
-                        <div className="padding-left46 color37352f padding-top-bottom3 flex click">
+                      {item.portfolioContent1 && (
+                        <div
+                          className="padding-left46 color37352f padding-top-bottom3 flex click"
+                          onClick={() =>
+                            item.portfolioContent1?.id &&
+                            navigateToPortfolio(item.portfolioContent1.id)
+                          }
+                        >
                           <FcPicture className="image_icon" />
                           <span className="bold600">
-                            {item.portfolioContent3}
+                            {item.portfolioContent1.name}
                             <b> ↗︎</b>
                           </span>
                         </div>
                       )}
-                      {item.portfolioContent4 && (
-                        <div className="padding-left46 color37352f padding-top-bottom3 flex click">
+                      {item.portfolioContent2 && (
+                        <div
+                          className="padding-left46 color37352f padding-top-bottom3 flex click"
+                          onClick={() =>
+                            item.portfolioContent2?.id &&
+                            navigateToPortfolio(item.portfolioContent2.id)
+                          }
+                        >
                           <FcPicture className="image_icon" />
                           <span className="bold600">
-                            {item.portfolioContent4}
+                            {item.portfolioContent2.name}
                             <b> ↗︎</b>
                           </span>
                         </div>
@@ -358,43 +351,77 @@ const ResumePage = () => {
                             : "box hidden depth3"
                         }
                       >
-                        {item.projects.map((projectItem, projectName) => (
+                        {item.projects?.map((projectItem, projectName) => (
                           <li key={projectName}>
                             <div className="width100 padding-top-bottom3">
                               <b>{projectItem.projectNO}&#41;&nbsp;</b>
                               <b>{projectItem.projectName}</b>
                             </div>
-                            <div className="width100 padding-top-bottom3 bullet-flex">
-                              <span>
-                                <img
-                                  className="disc icon_dark"
-                                  src={icon_disc_dark}
-                                />
-                              </span>
-                              <span className="color37352f">
-                                {projectItem.projectContribution}
-                              </span>
-                            </div>
-                            <div className="width100 padding-top-bottom3">
-                              <span>
-                                <img
-                                  className="disc icon_dark"
-                                  src={icon_disc_dark}
-                                />
-                              </span>
-                              <span>
-                                <span className="color37352f">
-                                  산출물 :&nbsp;
+
+                            {projectItem.projectContribution && (
+                              <div className="width100 padding-top-bottom3 bullet-flex">
+                                <span>
+                                  <img
+                                    className="disc icon_dark"
+                                    src={icon_disc_dark}
+                                  />
                                 </span>
-                                <a
-                                  href={projectItem.projectOutput}
-                                  target="_blank"
-                                  className="color37352f"
-                                >
-                                  {projectItem.projectOutput}
-                                </a>
-                              </span>
-                            </div>
+                                <span className="color37352f">
+                                  {projectItem.projectContribution}
+                                </span>
+                              </div>
+                            )}
+
+                            {projectItem.projectDescription && (
+                              <div className="width100 padding-top-bottom3 bullet-flex">
+                                <span>
+                                  <img
+                                    className="disc icon_dark"
+                                    src={icon_disc_dark}
+                                  />
+                                </span>
+                                <span className="color37352f">
+                                  {projectItem.projectDescription}
+                                </span>
+                              </div>
+                            )}
+
+                            {projectItem.projectStack && (
+                              <div className="width100 padding-top-bottom3 bullet-flex">
+                                <span>
+                                  <img
+                                    className="disc icon_dark"
+                                    src={icon_disc_dark}
+                                  />
+                                </span>
+                                <span className="color37352f">
+                                  {projectItem.projectStack}
+                                </span>
+                              </div>
+                            )}
+
+                            {projectItem.projectOutput && (
+                              <div className="width100 padding-top-bottom3">
+                                <span>
+                                  <img
+                                    className="disc icon_dark"
+                                    src={icon_disc_dark}
+                                  />
+                                </span>
+                                <span>
+                                  <span className="color37352f">
+                                    산출물 :&nbsp;
+                                  </span>
+                                  <a
+                                    href={projectItem.projectOutput}
+                                    target="_blank"
+                                    className="color37352f"
+                                  >
+                                    {projectItem.projectOutput}
+                                  </a>
+                                </span>
+                              </div>
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -409,7 +436,7 @@ const ResumePage = () => {
                         }
                       >
                         <li>
-                          <div>그 외 9개 서비스 출시</div>
+                          <div>{item.projectEtc}</div>
                         </li>
                       </ul>
                     )}

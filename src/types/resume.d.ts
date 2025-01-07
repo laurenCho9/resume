@@ -5,18 +5,19 @@ export type TExperience = {
   content1: string;
   content2?: string;
   content3?: string;
-  portfolio: string;
-  portfolioContent1: { id: string; name: string };
-  portfolioContent2: { id: string; name: string };
-  portfolioContent3?: string;
-  portfolioContent4?: string;
+  portfolio?: string;
+  portfolioContent1?: { id: string; name: string };
+  portfolioContent2?: { id: string; name: string };
   subTitle?: string;
-  projects: {
+  projects?: {
     projectNO: number;
     projectName: string;
-    projectContribution: string;
-    projectOutput: string;
+    projectContribution?: string;
+    projectOutput?: string;
+    projectDescription?: string;
+    projectStack?: string;
   }[];
+  projectEtc: string;
 };
 
 export type TEducation = {

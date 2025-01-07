@@ -1,6 +1,33 @@
 {
   "experience": [
     {
+      "title1": "(주)리더마인",
+      "title2": "프론트개발팀",
+      "date": ["2024.11-"],
+      "content1": ["React, Shop by, Cafe24 환경에서 퍼블리싱, 프론트개발"],
+      "careerStatement": [],
+      "careerStateContent1": {},
+      "careerStateContent2": {},
+      "subTitle": ["Career Statement"],
+      "projects": [
+        {
+          "projectNO": "1",
+          "projectName": "농심몰TV 관리자페이지 - SI (8일)",
+          "projectDescription": "관리자페이지 Swagger를 사용한 API 호출 테스트 및 구현",
+          "projectStack": "Npm, Vite, React, Zustand, SCSS, Axios, REST API"
+        },
+        {
+          "projectNO": "2",
+          "projectName": "닥터포헤어 관리자페이지 - SI (1개월)",
+          "projectDescription": "관리자페이지 Swagger를 사용한 API 호출 테스트 및 구현",
+          "projectStack": "Npm, Vite, React, Recoil, SCSS, Axios, REST API"
+        }
+      ],
+      "projectEtc": [
+        "그 외 Cafe24, Shop by(하이트진로, 에스원, 농심몰, 아모스프로페셔널) SM"
+      ]
+    },
+    {
       "title1": "넥스컨텔레컴(주)",
       "title2": "디자인, 퍼블리셔팀",
       "date": ["2022.07-2022.10"],
@@ -17,7 +44,7 @@
       "date": ["2021.09-2022.07"],
       "content1": ["웹 에이전시"],
       "content2": [
-        "웹디자인, 웹퍼블리싱 업무 (카페24 쇼핑몰 신규, 유지보수 담당)"
+        "웹디자인, 웹퍼블리싱 업무 (Cafe24 쇼핑몰 신규, 유지보수 담당)"
       ],
       "content3": ["회사 홈페이지"],
       "portfolio": ["작업한 Project 산출물"],
@@ -46,7 +73,8 @@
           "projectContribution": "기여도 20% : 워드프레스 기반 사이트 내 PRODUCT 하위 3가지 메뉴의 디자인, 퍼블리싱",
           "projectOutput": "http://archipin.com/"
         }
-      ]
+      ],
+      "projectEtc": ["그 외 9개 서비스 출시"]
     }
   ],
   "education": [
