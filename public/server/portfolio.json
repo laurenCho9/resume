@@ -12,7 +12,7 @@
     {
       "title": "이력서 팀프로젝트 (2인)",
       "description": "노션 디자인을 참고한 이력서 프로젝트입니다.",
-      "deploy": "https://resume-team-project.vercel.app/",
+      "deploy": "https://resume-hycho.vercel.app/",
       "blog": "https://velog.io/@lauren/%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1%EC%9D%BC%EC%B0%A8-%EA%B8%B0%EB%A1%9D",
       "thumbnail": "/assets/images/portfolio/thumbnail_resume.png",
       "technologies": "Create React App, Yarn Berry, React TypeScript, React Router, SCSS, Mock Data, Axios"
