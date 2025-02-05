@@ -2,8 +2,8 @@
   "experience": [
     {
       "title1": "(주)리더마인",
-      "title2": "프론트개발팀",
-      "date": ["2024.11-"],
+      "title2": "프론트개발팀 인턴",
+      "date": ["2024.11-2025.01"],
       "content1": ["React, Shop by, Cafe24 환경에서 퍼블리싱, 프론트개발"],
       "careerStatement": [],
       "careerStateContent1": {},
@@ -13,14 +13,16 @@
         {
           "projectNO": "1",
           "projectName": "농심몰TV 관리자페이지 - SI (8일)",
+          "projectContribution": "기여도 75%",
           "projectDescription": "관리자페이지 Swagger를 사용한 API 호출 테스트 및 구현",
           "projectStack": "Npm, Vite, React, Zustand, SCSS, Axios, REST API"
         },
         {
           "projectNO": "2",
           "projectName": "닥터포헤어 관리자페이지 - SI (1개월)",
+          "projectContribution": "기여도 25%",
           "projectDescription": "관리자페이지 Swagger를 사용한 API 호출 테스트 및 구현",
-          "projectStack": "Npm, Vite, React, Recoil, SCSS, Axios, REST API"
+          "projectStack": "Npm, Vite, React, SCSS, Axios, REST API"
         }
       ],
       "projectEtc": [
@@ -58,19 +60,22 @@
         {
           "projectNO": "1",
           "projectName": "값진푸드 쇼핑몰 - 적응형 웹 (3개월)",
-          "projectContribution": "기여도 100% : 카페24 기반 사이트 전체 페이지의 디자인, 퍼블리싱",
+          "projectContribution": "기여도 100%",
+          "projectDescription": "카페24 기반 사이트 전체 페이지의 디자인, 퍼블리싱",
           "projectOutput": "http://kabjinfood.com/"
         },
         {
           "projectNO": "2",
           "projectName": "비아와치 쇼핑몰 - 반응형 웹 (2개월)",
-          "projectContribution": "기여도 25% : 카페24 기반 사이트 전체 페이지의 퍼블리싱",
+          "projectContribution": "기여도 25%",
+          "projectDescription": "카페24 기반 사이트 전체 페이지의 퍼블리싱",
           "projectOutput": "https://viawatch.co.kr/"
         },
         {
           "projectNO": "3",
           "projectName": "아키핀 - 반응형 웹 (1개월)",
-          "projectContribution": "기여도 20% : 워드프레스 기반 사이트 내 PRODUCT 하위 3가지 메뉴의 디자인, 퍼블리싱",
+          "projectContribution": "기여도 20%",
+          "projectDescription": "워드프레스 기반 사이트 내 PRODUCT 하위 3가지 메뉴의 디자인, 퍼블리싱",
           "projectOutput": "http://archipin.com/"
         }
       ],
@@ -80,8 +85,14 @@
   "education": [
     {
       "title1": "세종사이버대학교",
+      "tag": ["재", "학"],
+      "date": ["2025.03-2027.02"],
+      "content": ["소프트웨어공학과 (편입)"]
+    },
+    {
+      "title1": "세종사이버대학교",
       "tag": ["졸", "업"],
-      "date": ["2018.03-2021.06"],
+      "date": ["2018.03-2022.08"],
       "content": ["경영학과"]
     },
     {
@@ -100,7 +111,7 @@
   "skill": [
     {
       "title1": "협업",
-      "content1": ["GitHub"],
+      "content1": ["GitHub, GitLab"],
       "content2": ["Slack"],
       "content3": ["Trello"],
       "content4": ["Notion"]
